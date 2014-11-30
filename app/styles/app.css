@@ -1,3 +1,19 @@
 html, body {
   margin: 20px;
 }
+
+.main-div {
+  border-radius: 15px;
+  border: 1px #aaa solid;
+  padding-bottom: 2em;
+}
+
+#logo {
+  font-family: 'Leckerli One', cursive;
+  font-size: 6em;
+}
+
+#editor {
+  min-height: 300px;
+  width: 100%;
+}
