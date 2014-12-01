@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
 
       this.store.createRecord('entry', {
         body: this.get('body'),
-        title: this.get('title')
+        title: 'a_title'
       }).save().then(function(res) {
         console.log('good');
         console.dir(res);
