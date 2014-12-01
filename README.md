@@ -1,6 +1,6 @@
 # Screenwritr
 
-Just your standard Ember web-app, here to help write and share [scripts](http://en.wikipedia.org/wiki/Screenwriting).
+Just your standard Ember web-app, helping you to write and share your own [scripts](http://en.wikipedia.org/wiki/Screenwriting).
 
 Approach it like you would any other Ember app.
 
