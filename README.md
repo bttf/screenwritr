@@ -1,7 +1,8 @@
 # Screenwritr
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Just your standard Ember web-app, here to help write and share [scripts](http://en.wikipedia.org/wiki/Screenwriting).
+
+Approach it like you would any other Ember app.
 
 ## Prerequisites
 
@@ -38,7 +39,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+At your own risk.
 
 ## Further Reading / Useful Links
 
