@@ -16,4 +16,10 @@ html, body {
 #editor {
   min-height: 300px;
   width: 100%;
+  box-shadow: 0 0 10px #ccc;
+  border: 1px #aaa solid;
+  border-radius: 0;
+
+  font-family: courier;
+  font-size: 1.5em;
 }
