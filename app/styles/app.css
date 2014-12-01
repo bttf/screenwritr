@@ -26,6 +26,7 @@ html, body {
 
 .save-button {
   margin-top: 1.25em;
+  margin-bottom: 1.25em;
   width: 8%;
   background-color: #ccc;
   color: #444;
@@ -33,3 +34,11 @@ html, body {
   font-family: courier;
   font-weight: bold;
 }
+
+.interior {
+  border-radius: 0;
+  border: 1px #aaa solid;
+  box-shadow: 0 0 10px #e0e0e0;
+  min-height: 300px;
+}
+
