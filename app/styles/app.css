@@ -1,5 +1,6 @@
 html, body {
   margin: 20px;
+  height: 100%;
 }
 
 .main-div {
@@ -14,7 +15,7 @@ html, body {
 }
 
 #editor {
-  min-height: 300px;
+  height: 300px;
   width: 100%;
   box-shadow: 0 0 10px #ccc;
   border: 1px #aaa solid;
@@ -41,4 +42,3 @@ html, body {
   box-shadow: 0 0 10px #e0e0e0;
   min-height: 300px;
 }
-
