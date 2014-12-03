@@ -4,7 +4,9 @@
     <div id='editor'>
     </div>
 
-    <button class='btn btn-xs save-button' {{action 'save'}}>save</button>
+    {{#if session.isAuthenticated}}
+      <button class='btn btn-xs save-button' {{action 'save'}}>save</button>
+    {{/if}}
 
   </div>
   <div class="col-xs-12 col-sm-12 col-md-3">
