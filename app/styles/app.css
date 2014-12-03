@@ -61,3 +61,11 @@ html, body {
 .login-div button:focus {
   color: #fff;
 }
+
+.user-div {
+}
+
+.user-div button {
+  border-radius: 0;
+  font-size: 0.9em;
+}

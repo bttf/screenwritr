@@ -3,15 +3,17 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
     loginFb: function() {
-      var _this = this;
-      this.get('session').authenticate('authenticator:fb', {}).then(function() {
-        console.log(_this.get('session.userId'));
-        console.dir(_this.get('session.authResponse'));
-      });
+      this.get('session').authenticate('authenticator:fb', {});
     },
 
-    doShit: function() {
-      console.log(this.get('userId'));
+    logout: function() {
+      this.get('session').invalidate('authenticator:fb');
+    },
+
+    debugLoginStatus: function() {
+      FB.getLoginStatus(function(res) {
+        console.dir(res);
+      });
     },
 
     save: function() {

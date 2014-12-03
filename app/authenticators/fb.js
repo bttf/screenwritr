@@ -1,14 +1,26 @@
 import Base from 'simple-auth/authenticators/base';
 
 export default Base.extend({
+  restore: function(data) {
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      if (!Ember.isEmpty(data.accessToken)) {
+        console.log('hey');
+        console.log(typeof FB);
+        resolve(data);
+      } else {
+        console.log('REEEJECTED!');
+        reject();
+      }
+    });
+  },
+
   authenticate: function(options) {
-    console.log('i suppose this will alwyas occur?');
     return new Ember.RSVP.Promise(function(resolve, reject) {
       FB.login(function(response) {
-        if (response.authResponse.userID) {
+        if (response.authResponse.accessToken) {
+          console.dir(response);
           resolve({
-            authResponse: response.authResponse,
-            userId: response.authResponse.userID
+            accessToken: response.authResponse.accessToken
           });
         } else {
           reject();
@@ -16,6 +28,13 @@ export default Base.extend({
       });
     });
   },
+
   invalidate: function(data) {
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      FB.logout(function(res) {
+        resolve();
+      });
+      reject();
+    });
   }
 });
