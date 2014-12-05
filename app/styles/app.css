@@ -34,7 +34,7 @@ html, body {
   font-weight: bold;
 }
 
-.interior {
+.control-panel {
   border-radius: 0;
   border: 1px #aaa solid;
   box-shadow: 0 0 10px #e0e0e0;
@@ -43,29 +43,14 @@ html, body {
   font-size: 1.5em;
 }
 
-.login-div hr {
-  width: 85%;
+.toolbar {
+  margin-bottom: 0.5em;
 }
 
-.login-div button {
-  font-size: 0.9em;
-  background-color: #45619d;
-  border-radius: 0;
-  color: #fff;
-}
-.login-div button:hover {
-  color: #fff;
-  background-color: #45619d;
+.toolbar button {
+  border: 1px #aaa solid;
 }
 
-.login-div button:focus {
-  color: #fff;
-}
-
-.user-div {
-}
-
-.user-div button {
-  border-radius: 0;
-  font-size: 0.9em;
+.toolbar a {
+  color: #000;
 }
