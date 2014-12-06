@@ -30,18 +30,42 @@ export default Ember.Component.extend({
     switch(style) {
       case "Title":
         console.log('title');
+        window.quillEditor.focus();
+        window.quillEditor.prepareFormat('bold', true);
+        window.quillEditor.prepareFormat('align', 'center');
+        window.quillEditor.focus();
         break;
       case "Credits":
         console.log('credits');
+        window.quillEditor.focus();
+        window.quillEditor.prepareFormat('bold', true);
+        window.quillEditor.prepareFormat('bold', false);
+        window.quillEditor.prepareFormat('align', 'center');
+        window.quillEditor.focus();
         break;
       case "Slugline":
         console.log('slugline');
+        window.quillEditor.focus();
+        window.quillEditor.prepareFormat('bold', true);
+        window.quillEditor.prepareFormat('bold', false);
+        window.quillEditor.prepareFormat('align', 'left');
+        window.quillEditor.focus();
         break;
       case "Action":
         console.log('action');
+        window.quillEditor.focus();
+        window.quillEditor.prepareFormat('bold', true);
+        window.quillEditor.prepareFormat('bold', false);
+        window.quillEditor.prepareFormat('align', 'left');
+        window.quillEditor.focus();
         break;
       case "Dialogue":
         console.log('dialogue');
+        window.quillEditor.focus();
+        window.quillEditor.prepareFormat('bold', true);
+        window.quillEditor.prepareFormat('bold', false);
+        window.quillEditor.prepareFormat('align', 'center');
+        window.quillEditor.focus();
         break;
     }
   },
@@ -56,5 +80,7 @@ export default Ember.Component.extend({
 
   fetchToolbar: function() {
     return document.getElementById('toolbar') || false;
-  }
+  },
+
+  editor: window.quillEditor
 });
