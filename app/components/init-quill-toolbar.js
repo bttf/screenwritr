@@ -2,34 +2,59 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   initQuillToolbar: function() {
-    var formats = [
-      'bold',
-      'italic',
-      'underline',
-      'align-left',
-      'align-center',
-      'align-right'
-    ];
-
-    for (var i = 0; i < formats.length; i++) {
-      var f = formats[i];
-      var e = document.getElementsByClassName('fa-' + f)[0];
-      if (e) {
-        var a = document.createElement('a');
-        a.addEventListener('mouseup', (function(f, e) {
+    var anchors;
+    if (anchors = this.fetchAnchors(this.fetchToolbar())) {
+      for (var i = 0; i < anchors.length; i++) {
+        var a = anchors[i];
+        a.addEventListener('mouseup', (function(e, _this) {
           return function() {
-            if (f.indexOf('align') > -1) {
-              window.quillEditor.formatText(0, window.quillEditor.getLength(), f.split('-')[0], f.split('-')[1]); 
-            } else {
-              console.log('f is ' + f);
-              console.log('and blah is ' + !(e.className.indexOf('ql-active') > -1));
-              window.quillEditor.formatText(0, window.quillEditor.getLength(), f, !(e.className.indexOf('ql-active') > -1)); 
-            }
+            $(e).addClass('active');
+            _this.disableOtherActives(e);
+            _this.enableStyle(e.innerHTML);
           }
-        })(f, e));
-        e.parentNode.parentNode.insertBefore(a, e.parentNode);
-        a.appendChild(e.parentNode);
+        })(a, this));
       }
     }
-  }.on('didInsertElement')
+  }.on('didInsertElement'),
+
+  disableOtherActives: function(e) {
+    var a = this.fetchAnchors(this.fetchToolbar());
+    for (var i = 0; i < a.length; i++) {
+      if (e !== a[i]) {
+        $(a[i]).removeClass('active');
+      }
+    }
+  },
+
+  enableStyle: function(style) {
+    switch(style) {
+      case "Title":
+        console.log('title');
+        break;
+      case "Credits":
+        console.log('credits');
+        break;
+      case "Slugline":
+        console.log('slugline');
+        break;
+      case "Action":
+        console.log('action');
+        break;
+      case "Dialogue":
+        console.log('dialogue');
+        break;
+    }
+  },
+
+  fetchAnchors: function(toolbar) {
+    if (!toolbar) return false;
+
+    return Array.prototype.slice.call(toolbar.childNodes, 0).filter(function(e) {
+      return e.tagName && e.tagName === "A";
+    });
+  },
+
+  fetchToolbar: function() {
+    return document.getElementById('toolbar') || false;
+  }
 });

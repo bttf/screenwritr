@@ -11,6 +11,13 @@ html, body {
 
 #logo {
   font-size: 6em;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+#toolbar {
+  margin-bottom: 1em;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #editor {
@@ -42,3 +49,4 @@ html, body {
   padding-top: 1em;
   font-size: 1.5em;
 }
+
