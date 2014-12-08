@@ -6,16 +6,26 @@ export default Ember.ObjectController.extend({
   loginError: false,
   actions: {
     login: function() {
-      console.log('debug, c-p controller, login action');
-      var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com')
-
       if (validateFields()) {
         var email = $('#email').val();
         var pass = $('#password').val();
-
         if (this.get('loginError')) this.set('loginError', false);
 
-        var _this = this;
+        if (userExists(this, email)) {
+        } else {
+          authenticate(this, email, pass);
+        }
+      } else {
+        this.set('loginError', 'Invalid credentials');
+      }
+
+      function userExists(_this, email) {
+        return false;
+      }
+
+      function authenticate(_this, email, pass) {
+        var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com');
+
         ref.createUser({
           email: email,
           password: pass
@@ -27,9 +37,6 @@ export default Ember.ObjectController.extend({
             _this.set('loginError', err);
           }
         });
-      }
-      else {
-        this.set('loginError', 'Invalid credentials');
       }
 
       function validateFields() {
