@@ -17,6 +17,12 @@
           <button class='btn btn-default input-sm' type='submit' {{action 'login'}}>enter</button>
         </div>
 
+        {{#if loginError}}
+        <div class='error-field text-right'>
+          {{loginError}}
+        </div>
+        {{/if}}
+
       </form>
     </div>
 
