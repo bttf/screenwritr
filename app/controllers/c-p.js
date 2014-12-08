@@ -10,11 +10,25 @@ export default Ember.ObjectController.extend({
       var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com')
 
       if (validateFields()) {
+        var email = $('#email').val();
+        var pass = $('#password').val();
+
         if (this.get('loginError')) this.set('loginError', false);
 
+        var _this = this;
+        ref.createUser({
+          email: email,
+          password: pass
+        }, function(err) {
+          if (err === null) {
+            console.log('user created successfully');
+          } else {
+            console.log('error creating user:', err);
+            _this.set('loginError', err);
+          }
+        });
       }
       else {
-        console.log('debug, c-p controller, login action, loginError, Fields not valid');
         this.set('loginError', 'Invalid credentials');
       }
 
