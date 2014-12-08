@@ -7,20 +7,33 @@ export default Ember.ObjectController.extend({
   actions: {
     login: function() {
       if (validateFields()) {
+        if (this.get('loginError')) this.set('loginError', false);
         var email = $('#email').val();
         var pass = $('#password').val();
-        if (this.get('loginError')) this.set('loginError', false);
 
-        if (userExists(this, email)) {
-        } else {
-          authenticate(this, email, pass);
-        }
+        var _this = this;
+        userExists(this, email).then(function(userExists) {
+          if (userExists) {
+            console.log('' + email + ' already exists; you will need to log in');
+          } else {
+            authenticate(_this, email, pass);
+          }
+        });
+
       } else {
         this.set('loginError', 'Invalid credentials');
       }
 
       function userExists(_this, email) {
-        return false;
+        return _this.store.find('user').then(function(users) {
+          var list = users.filter(function(user) {
+            return user.get('email').toLowerCase() === email.toLowerCase();
+          });
+          if (list.length > 0) 
+            return true;
+          else
+            return false;
+        });
       }
 
       function authenticate(_this, email, pass) {

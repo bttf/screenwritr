@@ -13,6 +13,10 @@ html, body {
   font-size: 6em;
   margin-bottom: 0;
   padding: 0;
+  a,a:hover {
+    color: #333;
+    text-decoration: none;
+  }
 }
 
 #toolbar {
