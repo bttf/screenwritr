@@ -1,0 +1,42 @@
+<div class='row'>
+  <div class='col-xs-12'>
+    <table class='table table-responsive'>
+      <thead>
+        <tr>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>E-mail</td>
+        </tr>
+      </thead>
+      {{#each user in model}}
+      <tbody>
+        <tr>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
+        </tr>
+      </tbody>
+      {{/each}}
+    </table>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-xs-12'>
+    {{#if creatingUser}}
+      {{render 'users/create-user' newUser}}
+    {{else}}
+      <a class='btn btn-primary' {{action 'createUser'}}>Create User</a>
+    {{/if}}
+  </div>
+</div>
+
+<br>
+<br>
+<div class='row'>
+  <div class='col-xs-6'>
+    {{#if error}}
+      {{error}}
+    {{/if}}
+  </div>
+</div>
