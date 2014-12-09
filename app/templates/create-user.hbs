@@ -14,7 +14,11 @@
       {{input type='text' value=email placeholder='E-mail'}}
       <br>
       {{textarea value=bio placeholder='A little about yourself...'}}
+      {{#unless password}}
+      {{input type='password' value=password placeholder='Password'}}
+      {{/unless}}
     </div>
+
     <div class='col-xs-12 col-sm-6'>
       <h2>{{fullName}}</h2>
       <h2>{{email}}</h2>
@@ -22,6 +26,7 @@
         {{bio}}
       </div>
     </div>
+
     <div class='col-xs-12 text-right'>
       {{#if fieldsValid}}
       <button class='btn btn-default' {{action 'saveUser'}}>Create</button>
