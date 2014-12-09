@@ -39,6 +39,12 @@ html, body {
   font-size: 1.5em;
 }
 
+.box-shadow {
+  box-shadow: 0 0 10px #ccc;
+  border: 1px #aaa solid;
+  border-radius: 0;
+}
+
 .save-button {
   margin-top: 1.25em;
   margin-bottom: 1.25em;
@@ -75,4 +81,26 @@ html, body {
 .admin-panel {
   margin: 1em;
   padding: 1em;
+}
+
+.createUser {
+  h1, h2, h4 {
+    margin: 0;
+  }
+  .inputs input, textarea {
+    border-radius: 0;
+    border: 1px #aaa solid;
+    margin: 0.5em auto;
+    font-size: 1.5em;
+    width: 50%;
+  }
+  .inputs textarea {
+    width: 75%;
+  }
+  .bio {
+    margin-top: 0.5em;
+    font-size: 1.5em;
+  }
+
+  padding: 2em;
 }

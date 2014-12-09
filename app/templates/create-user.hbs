@@ -1,0 +1,38 @@
+<div class='createUser box-shadow'>
+  <div class='row'>
+    <div class='col-xs-12'>
+      <h1>New User</h1>
+    </div>
+  </div>
+  <br>
+  <div class='row'>
+    <div class='col-xs-12 col-sm-6 inputs'>
+      {{input type='text' value=firstName placeholder='First name'}}
+      <br>
+      {{input type='text' value=lastName placeholder='Last name'}}
+      <br>
+      {{input type='text' value=email placeholder='E-mail'}}
+      <br>
+      {{textarea value=bio placeholder='A little about yourself...'}}
+    </div>
+    <div class='col-xs-12 col-sm-6'>
+      <h2>{{fullName}}</h2>
+      <h2>{{email}}</h2>
+      <div class='bio'>
+        {{bio}}
+      </div>
+    </div>
+    <div class='col-xs-12 text-right'>
+      {{#if fieldsValid}}
+      <button class='btn btn-default' {{action 'saveUser'}}>Create</button>
+      {{else}}
+      Please fill in all fields
+      {{/if}}
+    </div>
+    <div class='col-xs-12 text-right text-danger'>
+      {{#if error}}
+      {{error}}
+      {{/if}}
+    </div>
+  </div>
+</div>
