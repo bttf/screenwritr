@@ -14,58 +14,39 @@ export default Ember.ObjectController.extend({
 
         // if user exists, log in, otherwise create user 
         var _this = this;
-        userExists(this, email).then(function(userExists) {
-          if (userExists) {
-            _this.get('session').authenticate('authenticator:firebase', { 
-              email: email, 
-              password: pass 
-            }).then(function(res) {
-              console.log('Authentication successful');
-            }, function(err) {
-              _this.set('loginError', err);
-            });
-
-          } else {
-            var newUser = _this.get('store').createRecord('user', {
-              email: email,
-              password: pass
-            });
-            _this.transitionToRoute('createUser', newUser);
-          }
+        userExists(this, email).then(function(user) {
+          user.set('password', pass);
+          _this.get('session').authenticate('authenticator:firebase', {
+            user: user
+          }).then(function() {
+            console.log('authentication successful');
+          }, function(err) {
+            _this.set('loginError', err);
+          });
+        }, function() {
+          var newUser = _this.get('store').createRecord('user', {
+            email: email,
+            password: pass
+          });
+          _this.transitionToRoute('createUser', newUser);
         });
       } else {
-        this.set('loginError', 'Invalid credentials');
+        this.set('loginError', 'Please fill in all fields');
       }
     }
   }
 });
 
 function userExists(_this, email) {
-  return _this.get('store').find('user').then(function(users) {
-    if (users) {
-      var list = users.filter(function(user) {
+  return new Ember.RSVP.Promise(function(resolve, reject) {
+    _this.get('store').find('user').then(function(users) {
+      var user = users.filter(function(user) {
         return user.get('email').toLowerCase() === email.toLowerCase();
       });
-      if (list.length > 0) 
-        return true;
-      else
-        return false;
-    }
-    return false;
-  });
-}
-
-function createUser(_this, email, pass) {
-  var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com');
-  return new Ember.RSVP.Promise(function(resolve, reject) {
-    ref.createUser({
-      email: email,
-      password: pass
-    }, function(err) {
-      if (err === null) {
-        resolve();
+      if (user.length == 1) {
+        resolve(user.objectAt(0));
       } else {
-        reject(err);
+        reject('No users found');
       }
     });
   });

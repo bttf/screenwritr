@@ -7,13 +7,14 @@ export default Base.extend({
 
   authenticate: function(options) {
     var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com');
+    console.log(options.user.get('password'));
     return new Ember.RSVP.Promise(function(resolve, reject) {
       ref.authWithPassword({
-        email: options.email,
-        password:  options.password,
+        email: options.user.get('email'),
+        password:  options.user.get('password'),
       }, function(error, authData) {
         if (error === null) {
-          resolve({ authData: authData });
+          resolve({ user: options.user, authData: authData });
         } else {
           reject(error);
         }

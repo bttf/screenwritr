@@ -26,8 +26,7 @@ export default Ember.ObjectController.extend({
           _this.get('model').save().then(function() {
             console.log('user created successfully, authenticating');
             _this.get('session').authenticate('authenticator:firebase', {
-              email: _this.get('email'),
-              password: _this.get('password')
+              user: _this.get('model')
             });
             _this.transitionToRoute('index');
 

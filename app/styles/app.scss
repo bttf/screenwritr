@@ -13,7 +13,7 @@ html, body {
   margin-bottom: 1.5em;
 }
 
-#logo {
+.logo {
   font-size: 6em;
   margin-bottom: 0;
   padding: 0;
@@ -22,6 +22,11 @@ html, body {
     text-decoration: none;
   }
 }
+
+.header-name {
+  font-size: 6em;
+}
+
 
 #toolbar {
   margin-bottom: 1em;
