@@ -6,9 +6,14 @@
     <br>
     <div class="row">
       <div class="col-xs-4 saved-notice text-success">
-        {{#if saved}}
-        {{saved}}
+        {{#if lastSave}}
+        {{lastSave}}
         {{/if}}
+        <div class='saved-notice text-danger'>
+          {{#if saveError}}
+          {{saveError}}
+          {{/if}}
+        </div>
       </div>
 
       <div class="col-xs-8 text-right">
