@@ -4,15 +4,26 @@ export default Ember.ObjectController.extend({
   saveTimeout: false,
   listTimeouts: [],
   actions: {
+    manualSave: function() {
+      var _this = this;
+      this.set('body', JSON.stringify(window.quillEditor.getContents()));
+      this.get('model').save().then(function() {
+        _this.set('lastSave', 'Saved, ' + moment().format('h:mm:ss a'));
+      }, function(err) {
+        _this.set('saveError', err);
+      });
+
+    },
+
     toggleSaveTimeout: function() {
       // fn for timeout
       var saveFn = (function(_this) {
         return function() {
           _this.set('body', JSON.stringify(window.quillEditor.getContents()));
           _this.get('model').save().then(function() {
-            _this.set('lastSave', 'Saved, right now.');
+            _this.set('lastSave', 'Auto-save, ' + moment().format('h:mm:ss a'));
           }, function (err) {
-            _this.set('saveError', 'You fucked it up.');
+            _this.set('saveError', err);
           });
         };
       })(this);
