@@ -24,9 +24,11 @@ html, body {
 }
 
 .header-name {
-  font-size: 6em;
+  font-size: 3em;
+  .header-name-margin {
+    margin-top: 1em;
+  }
 }
-
 
 #toolbar {
   margin-bottom: 1em;
@@ -108,4 +110,9 @@ html, body {
   }
 
   padding: 2em;
+}
+
+.saved-notice {
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
 }

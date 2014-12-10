@@ -1,16 +1,23 @@
 <div class="row">
-  <div class="col-xs-12 col-md-6 col-md-offset-3 text-right">
-
-    {{partial 'toolbar'}}
-
-  </div>
-</div>
-
-<div class="row">
   <div class="stage col-xs-12 col-sm-12 col-md-9">
 
     <div id='editor'></div>
 
+    <br>
+    <div class="row">
+      <div class="col-xs-4 saved-notice text-success">
+        testing
+        {{#if saved}}
+        {{saved}}
+        {{/if}}
+      </div>
+
+      <div class="col-xs-8 text-right">
+
+        {{partial 'toolbar'}}
+
+      </div>
+    </div>
   </div>
   <div class="col-xs-12 col-sm-12 col-md-3">
 
@@ -18,6 +25,7 @@
 
   </div>
 </div>
+
 
 {{partial 'admin-panel'}}
 

@@ -4,9 +4,11 @@
       <div class="logo">{{#link-to 'index'}}screenwritr{{/link-to}}</div>
     </div>
     <div class='col-xs-12 col-sm-6 text-right header-name'>
-      {{#if session.isAuthenticated}}
+      <div class='hidden-xs header-name-margin'>
+        {{#if session.isAuthenticated}}
         {{session.user.firstName}}
-      {{/if}}
+        {{/if}}
+      </div>
     </div>
     <div class="col-xs-12">
       {{outlet}}

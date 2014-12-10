@@ -1,12 +1,14 @@
 import DS from 'ember-data';
 
-var attr = DS.attr;
+var attr = DS.attr,
+  hasMany = DS.hasMany;
 
 export default DS.Model.extend({
   firstName: attr('string'),
   lastName: attr('string'),
   email: attr('string'),
   bio: attr('string'),
+  entries: hasMany('entry'),
 
   fullName: function() {
     var fName, lName;
