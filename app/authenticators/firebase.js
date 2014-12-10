@@ -19,7 +19,7 @@ export default Base.extend({
     return new Ember.RSVP.Promise(function(resolve, reject) {
       ref.authWithPassword({
         email: options.user.get('email'),
-        password:  options.user.get('password'),
+        password:  options.password
       }, function(error, authData) {
         if (error === null) {
           resolve({ user: options.user, authData: authData });

@@ -15,9 +15,9 @@ export default Ember.ObjectController.extend({
         // if user exists, log in, otherwise create user 
         var _this = this;
         userExists(this, email).then(function(user) {
-          user.set('password', pass);
           _this.get('session').authenticate('authenticator:firebase', {
-            user: user
+            user: user,
+            password: pass
           }).then(function() {
             console.log('authentication successful');
           }, function(err) {
