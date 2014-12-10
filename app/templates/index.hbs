@@ -1,12 +1,11 @@
 <div class="row">
   <div class="stage col-xs-12 col-sm-12 col-md-9">
 
-    <div id='editor'></div>
+    <div id='editor'>{{body}}</div>
 
     <br>
     <div class="row">
       <div class="col-xs-4 saved-notice text-success">
-        testing
         {{#if saved}}
         {{saved}}
         {{/if}}
@@ -25,9 +24,6 @@
 
   </div>
 </div>
-
-
-{{partial 'admin-panel'}}
 
 {{init-quill}}
 {{init-quill-toolbar}}

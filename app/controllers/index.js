@@ -1,19 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+export default Ember.ObjectController.extend({
   actions: {
-    save: function() {
-      this.store.createRecord('entry', {
-        body: this.get('body'),
-        title: 'a_title'
-      }).save().then(function(res) {
-        console.log('good');
-        console.dir(res);
-      }, function(err) {
-        console.log('not good');
-        console.log(err);
-      });
-    }
   }
-
 });

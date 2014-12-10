@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.find('entry');
+    return this.get('store').createRecord('entry', {
+      body: 'Begin writing here ...'
+    });
   }
 });
