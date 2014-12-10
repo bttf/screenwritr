@@ -33,6 +33,17 @@ export default Ember.ObjectController.extend({
       } else {
         this.set('loginError', 'Please fill in all fields');
       }
+    },
+
+    logout: function() {
+      var _this = this;
+      this.get('session').invalidate('authenticator:firebase').then(function() {
+        console.log('authentication invalidated');
+        _this.transitionToRoute('index');
+      }, function(err) {
+        console.log('I\'m afraid I can\'t do that');
+      });
+
     }
   }
 });

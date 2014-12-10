@@ -3,11 +3,19 @@ import ENV from 'screenwritr/config/environment';
 
 export default Base.extend({
   restore: function(data) {
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com');
+      var authData = ref.getAuth();
+      if (authData) {
+        resolve({ user: data.user, authData: authData });
+      } else { 
+        reject
+      }
+    });
   },
 
   authenticate: function(options) {
     var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com');
-    console.log(options.user.get('password'));
     return new Ember.RSVP.Promise(function(resolve, reject) {
       ref.authWithPassword({
         email: options.user.get('email'),
@@ -23,5 +31,10 @@ export default Base.extend({
   },
 
   invalidate: function(data) {
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com');
+      ref.unauth();
+      resolve();
+    });
   }
 });
