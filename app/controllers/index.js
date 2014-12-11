@@ -16,7 +16,6 @@ export default Ember.ObjectController.extend({
     },
 
     toggleSaveTimeout: function() {
-      // fn for timeout
       var saveFn = (function(_this) {
         return function() {
           _this.set('body', JSON.stringify(window.quillEditor.getContents()));

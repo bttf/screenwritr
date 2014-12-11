@@ -1,11 +1,12 @@
 <div class="row">
+
   <div class="stage col-xs-12 col-sm-12 col-md-9">
-
     {{view 'editor'}}
-
     <br>
+
     <div class="row">
       <div class="col-xs-4 saved-notice text-success">
+        {{#if session.isAuthenticated}}
         <button class='btn btn-default save-button' {{action 'manualSave'}}>Save</button>
         {{#if lastSave}}
         {{lastSave}}
@@ -15,20 +16,19 @@
           {{saveError}}
           {{/if}}
         </div>
+        {{/if}}
       </div>
 
       <div class="col-xs-8 text-right">
-
         {{partial 'toolbar'}}
-
       </div>
     </div>
   </div>
+
   <div class="col-xs-12 col-sm-12 col-md-3">
-
     {{render 'c-p'}}
-
   </div>
+
 </div>
 
 {{init-quill}}

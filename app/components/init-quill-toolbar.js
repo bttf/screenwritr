@@ -2,19 +2,20 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   initQuillToolbar: function() {
-    var anchors;
-    if (anchors = this.fetchAnchors(this.fetchToolbar())) {
-      for (var i = 0; i < anchors.length; i++) {
-        var a = anchors[i];
-        a.addEventListener('mouseup', (function(e, _this) {
-          return function() {
-            $(e).addClass('active');
-            _this.disableOtherActives(e);
-            _this.enableStyle(e.innerHTML);
-          }
-        })(a, this));
-      }
-    }
+    window.quillEditor.addModule('toolbar', { container: '#toolbar' });
+    //var anchors;
+    //if (anchors = this.fetchAnchors(this.fetchToolbar())) {
+      //for (var i = 0; i < anchors.length; i++) {
+        //var a = anchors[i];
+        //a.addEventListener('mouseup', (function(e, _this) {
+          //return function() {
+            //$(e).addClass('active');
+            //_this.disableOtherActives(e);
+            //_this.enableStyle(e.innerHTML);
+          //}
+        //})(a, this));
+      //}
+    //}
   }.on('didInsertElement'),
 
   disableOtherActives: function(e) {
