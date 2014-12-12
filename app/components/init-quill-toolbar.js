@@ -12,8 +12,6 @@ export default Ember.Component.extend({
         console.log('adding events for anchor:', a.className);
         a.addEventListener('mouseup', (function(a, _this) {
           return function() {
-            $(a).addClass('ql-active');
-            _this.disableOtherActives(anchors, a);
             _this.enableStyle(a.childNodes[0].className);
           };
         })(a, this));
