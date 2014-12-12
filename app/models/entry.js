@@ -8,6 +8,10 @@ export default DS.Model.extend({
   body: attr('string'),
   created: attr('date'),
   modified: attr('date'),
-  owner: belongsTo('user')
+  userEmail: attr('string')
+
+  //user: belongsTo('user') 
+  // cant use this because emberfire does not have
+  // findQuery support ! BLEH
 });
 

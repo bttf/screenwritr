@@ -3,27 +3,49 @@ import Ember from 'ember';
 export default Ember.ObjectController.extend({
   saveTimeout: false,
   listTimeouts: [],
+
+  generateTitle: function(body) {
+    var title = [];
+    var strBody = JSON.parse(body).ops[0].insert.split(' ');
+    for (var i = 0; i < 3 && i < strBody.length; i++) {
+      title.push(strBody[i].replace('\n', ''));
+    }
+    title.push('...');
+    return title.join(' ');
+  },
+
+  saveEntry: function(_this) {
+    var body = JSON.stringify(window.quillEditor.getContents()),
+      title = this.generateTitle(body);
+    
+    _this.set('body', body);
+    _this.set('title', title);
+
+    if (Ember.isEmpty(_this.get('created'))) {
+      _this.set('created', new Date());
+      _this.set('modified', new Date());
+    } else {
+      _this.set('modified', new Date());
+    }
+
+    _this.set('userEmail', _this.get('session.user.email'));
+
+    _this.get('model').save().then(function() {
+      _this.set('lastSave', 'Saved, ' + moment().format('h:mm:ss a'));
+    }, function(err) {
+      _this.set('saveError', err);
+    });
+  },
+
   actions: {
     manualSave: function() {
-      var _this = this;
-      this.set('body', JSON.stringify(window.quillEditor.getContents()));
-      this.get('model').save().then(function() {
-        _this.set('lastSave', 'Saved, ' + moment().format('h:mm:ss a'));
-      }, function(err) {
-        _this.set('saveError', err);
-      });
-
+      this.saveEntry(this);
     },
 
     toggleSaveTimeout: function() {
       var saveFn = (function(_this) {
         return function() {
-          _this.set('body', JSON.stringify(window.quillEditor.getContents()));
-          _this.get('model').save().then(function() {
-            _this.set('lastSave', 'Auto-save, ' + moment().format('h:mm:ss a'));
-          }, function (err) {
-            _this.set('saveError', err);
-          });
+          _this.saveEntry(_this);
         };
       })(this);
 

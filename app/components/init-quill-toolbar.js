@@ -3,13 +3,11 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   initQuillToolbar: function() {
     window.quillEditor.addModule('toolbar', { container: '#toolbar' });
-
     var anchors = this.fetchAnchors(this.fetchToolbar('align-toolbar'));
 
     if (anchors) {
       for(var i = 0; i < anchors.length; i++) {
         var a = anchors[i];
-        console.log('adding events for anchor:', a.className);
         a.addEventListener('mouseup', (function(a, _this) {
           return function() {
             _this.enableStyle(a.childNodes[0].className);

@@ -9,7 +9,7 @@
     <br>
 
     <div class="row">
-      <div class="col-xs-4 saved-notice text-success">
+      <div class="col-xs-6 saved-notice text-success">
         {{#if session.isAuthenticated}}
         <button class='btn btn-default save-button' {{action 'manualSave'}}>Save</button>
         {{#if lastSave}}
@@ -23,7 +23,7 @@
         {{/if}}
       </div>
 
-      <div class="col-xs-8 text-right">
+      <div class="col-xs-6 text-right">
         {{partial 'toolbar'}}
       </div>
     </div>
