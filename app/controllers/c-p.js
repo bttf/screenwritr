@@ -58,7 +58,6 @@ function userExists(_this, email) {
       var user = users.filter(function(user) {
         return user.get('email').toLowerCase() === email.toLowerCase();
       });
-      console.log('user:', user.length);
       if (user.length > 0) {
         resolve(user.objectAt(0));
       } else {

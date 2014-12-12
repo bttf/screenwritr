@@ -5,6 +5,8 @@ export default Ember.View.extend({
 
   // auto-save feature
   keyUp: function(evt) {
-    this.get('controller').send('toggleSaveTimeout', true);
+    if(this.get('controller.session.isAuthenticated')) {
+      this.get('controller').send('toggleSaveTimeout', true);
+    }
   }
 });

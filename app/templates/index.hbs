@@ -1,11 +1,7 @@
 <div class="row">
 
   <div class="stage col-xs-12 col-sm-12 col-md-9">
-    {{#if session.isAuthenticated}}
     {{view 'editor'}}
-    {{else}}
-    {{partial 'editor'}}
-    {{/if}}
     <br>
 
     <div class="row">
