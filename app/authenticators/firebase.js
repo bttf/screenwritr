@@ -7,7 +7,7 @@ export default Base.extend({
       var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com');
       var authData = ref.getAuth();
       if (authData) {
-        resolve({ user: data.user, authData: authData });
+        resolve({ uid: data.uid, user: data.user, authData: authData });
       } else { 
         reject
       }
@@ -22,7 +22,7 @@ export default Base.extend({
         password:  options.password
       }, function(error, authData) {
         if (error === null) {
-          resolve({ user: options.user, authData: authData });
+          resolve({ uid: options.user.get('id'), user: options.user, authData: authData });
         } else {
           reject(error);
         }

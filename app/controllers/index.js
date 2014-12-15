@@ -28,7 +28,9 @@ export default Ember.ObjectController.extend({
       _this.set('modified', new Date());
     }
 
-    _this.set('userEmail', _this.get('session.user.email'));
+    _this.get('store').find('user', _this.get('session.uid')).then(function(user) {
+      _this.set('user', user);
+    });
 
     _this.get('model').save().then(function() {
       _this.set('lastSave', 'Saved, ' + moment().format('h:mm:ss a'));

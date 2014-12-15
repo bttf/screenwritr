@@ -3,6 +3,7 @@ import ENV from 'screenwritr/config/environment';
 
 export default Ember.ObjectController.extend({
   loginError: false,
+
   actions: {
     login: function() {
       var email = $('#email').val();

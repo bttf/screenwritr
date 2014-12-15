@@ -22,9 +22,9 @@ export default Ember.ObjectController.extend({
       }, function(err) {
         if (err === null) {
           // success, save then authenticate
-          _this.get('model').save().then(function() {
+          _this.get('model').save().then(function(record) {
             _this.get('session').authenticate('authenticator:firebase', {
-              user: _this.get('model'),
+              user: record,
               password: _this.get('password')
             });
             _this.transitionToRoute('index');
