@@ -26,10 +26,29 @@
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-3">
-    {{render 'c-p'}}
+    <div class='row'>
+      <div class='col-xs-12'>
+
+        <div class='control-panel'>
+          {{#if session.isAuthenticated}}
+          {{partial 'user-panel'}}
+          {{else}}
+          {{partial 'guest-panel'}}
+          {{/if}}
+        </div>
+
+      </div>
+    </div>
   </div>
 
 </div>
 
 {{init-quill}}
 {{init-quill-toolbar}}
+
+<pre>
+index-debug
+
+model.newEntry.body: {{model.body}}
+model.entries.length: {{model.entries.length}}
+</pre>
