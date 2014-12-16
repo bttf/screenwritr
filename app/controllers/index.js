@@ -30,12 +30,14 @@ export default Ember.ObjectController.extend({
 
     _this.get('store').find('user', _this.get('session.uid')).then(function(user) {
       _this.set('user', user);
-    });
 
-    _this.get('model').save().then(function() {
-      _this.set('lastSave', 'Saved, ' + moment().format('h:mm:ss a'));
-    }, function(err) {
-      _this.set('saveError', err);
+      _this.get('model').save().then(function(entry) {
+        user.get('entries').pushObject(entry);
+        user.save();
+        _this.set('lastSave', 'Saved, ' + moment().format('h:mm:ss a'));
+      }, function(err) {
+        _this.set('saveError', err);
+      });
     });
   },
 

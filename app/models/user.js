@@ -8,7 +8,7 @@ export default DS.Model.extend({
   lastName: attr('string'),
   email: attr('string'),
   bio: attr('string'),
-  entries: hasMany('entry'),
+  entries: hasMany('entry', { async: true }),
 
   fullName: function() {
     var fName, lName;
