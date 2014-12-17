@@ -4,6 +4,7 @@ import ENV from 'screenwritr/config/environment';
 export default Ember.ObjectController.extend({
   loginError: false,
   entry: Em.computed.alias('model.entry'),
+  entries: Em.computed.alias('model.entries'),
 
   // auto-save timeouts
   saveTimeout: false,
@@ -49,7 +50,14 @@ export default Ember.ObjectController.extend({
   actions: {
     selectEntry: function(entry) {
      this.set('entry', entry); 
-     
+
+     for (var i = 0; i < this.get('entries').get('length'); i++) {
+       if (this.get('entries').objectAt(i) !== entry) {
+         this.get('entries').objectAt(i).set('selected', false);
+       } else {
+         this.get('entries').objectAt(i).set('selected', true);
+       }
+     }
      //TODO: get rid of this workaround
      window.quillEditor.setContents(JSON.parse(this.get('entry.body')));
     },

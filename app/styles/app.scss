@@ -128,19 +128,22 @@ html, body {
   overflow: auto;
 }
 
+.entry-select {
+  overflow: hidden;
+}
+
 .selectable-entry {
   overflow: hidden;
-  width:75%;
-  margin-left: 1.5em;
+  padding: 0.5em;
   border-bottom: 1px #aaa solid;
 
   .title {
-    font-size: 2em;
+    font-size: 1.5em;
     margin: 0;
   }
 
   .author {
-    font-size: 1.5em;
+    font-size: 1em;
     margin: 0;
   }
 }
