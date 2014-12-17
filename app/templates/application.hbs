@@ -6,7 +6,9 @@
     <div class='col-xs-12 col-sm-6 text-right header-name'>
       <div class='hidden-xs header-name-margin'>
         {{#if session.isAuthenticated}}
+        {{#link-to 'user' session.uid}}
         {{session.user.firstName}}
+        {{/link-to}}
         {{/if}}
       </div>
     </div>

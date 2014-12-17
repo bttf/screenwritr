@@ -5,6 +5,11 @@ html, body {
   font-weight: 400;
 }
 
+a, a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
 .ql-active {
   background-color: #ccc;
 }
