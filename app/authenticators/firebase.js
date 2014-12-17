@@ -9,7 +9,7 @@ export default Base.extend({
       if (authData) {
         resolve({ uid: data.uid, user: data.user, authData: authData });
       } else { 
-        reject
+        reject();
       }
     });
   },
