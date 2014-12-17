@@ -134,7 +134,7 @@ html, body {
 
 .selectable-entry {
   overflow: hidden;
-  padding: 0.5em;
+  padding: 0.25em;
   border-bottom: 1px #aaa solid;
 
   .title {
@@ -142,7 +142,7 @@ html, body {
     margin: 0;
   }
 
-  .author {
+  .author, .modified {
     font-size: 1em;
     margin: 0;
   }
