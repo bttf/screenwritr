@@ -3,7 +3,7 @@
     <div class='scripts-list'>
       {{#each entry in model.entries}}
 
-      {{entry-select entry=entry }}
+      {{ entry-select action='selectEntry' entry=entry }}
 
       {{/each}}
     </div>

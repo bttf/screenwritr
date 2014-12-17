@@ -2,7 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.get('store').createRecord('entry');
+    return Ember.RSVP.hash({
+      entry: this.get('store').createRecord('entry', {
+        body: 'testing'
+      })
+    });
   },
 
   afterModel: function(model) {

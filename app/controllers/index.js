@@ -3,6 +3,7 @@ import ENV from 'screenwritr/config/environment';
 
 export default Ember.ObjectController.extend({
   loginError: false,
+  entry: Em.computed.alias('model.entry'),
 
   // auto-save timeouts
   saveTimeout: false,
@@ -22,20 +23,20 @@ export default Ember.ObjectController.extend({
     var body = JSON.stringify(window.quillEditor.getContents());
     var title = this.generateTitle(body);
 
-    _this.set('model.body', body);
-    _this.set('model.title', title);
+    _this.set('entry.body', body);
+    _this.set('entry.title', title);
 
     if (Ember.isEmpty(_this.get('created'))) {
-      _this.set('model.created', new Date());
-      _this.set('model.modified', new Date());
+      _this.set('entry.created', new Date());
+      _this.set('entry.modified', new Date());
     } else {
-      _this.set('model.modified', new Date());
+      _this.set('entry.modified', new Date());
     }
 
     _this.get('store').find('user', _this.get('session.uid')).then(function(user) {
-      _this.set('model.user', user);
+      _this.set('entry.user', user);
 
-      _this.get('model').save().then(function(entry) {
+      _this.get('entry').save().then(function(entry) {
         user.get('entries').pushObject(entry);
         user.save();
         _this.set('lastSave', 'Saved, ' + moment().format('h:mm:ss a'));
@@ -46,6 +47,13 @@ export default Ember.ObjectController.extend({
   },
 
   actions: {
+    selectEntry: function(entry) {
+     this.set('entry', entry); 
+     
+     //TODO: get rid of this workaround
+     window.quillEditor.setContents(JSON.parse(this.get('entry.body')));
+    },
+    
     manualSave: function() {
       this.saveEntry(this);
     },
