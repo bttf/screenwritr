@@ -3,6 +3,8 @@ import ENV from 'screenwritr/config/environment';
 
 export default Ember.ObjectController.extend({
   loginError: false,
+
+  // auto-save timeouts
   saveTimeout: false,
   listTimeouts: [],
 
@@ -17,8 +19,8 @@ export default Ember.ObjectController.extend({
   },
 
   saveEntry: function(_this) {
-    var body = JSON.stringify(window.quillEditor.getContents()),
-    title = this.generateTitle(body);
+    var body = JSON.stringify(window.quillEditor.getContents());
+    var title = this.generateTitle(body);
 
     _this.set('model.body', body);
     _this.set('model.title', title);

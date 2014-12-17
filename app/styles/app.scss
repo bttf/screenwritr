@@ -125,4 +125,23 @@ html, body {
   width: 80%;
   margin: 0 auto 0.75em auto;
   font-size: 0.5em;
+  overflow: auto;
 }
+
+.selectable-entry {
+  overflow: hidden;
+  width:75%;
+  margin-left: 1.5em;
+  border-bottom: 1px #aaa solid;
+
+  .title {
+    font-size: 2em;
+    margin: 0;
+  }
+
+  .author {
+    font-size: 1.5em;
+    margin: 0;
+  }
+}
+

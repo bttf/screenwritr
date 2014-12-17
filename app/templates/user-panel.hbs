@@ -2,13 +2,16 @@
   <div class='col-xs-12'>
     <div class='scripts-list'>
       {{#each entry in model.entries}}
-      {{entry.title}}
-      <br>
+
+      {{entry-select entry=entry }}
+
       {{/each}}
     </div>
   </div>
 
   <div class='col-xs-12 text-center'>
+
     <button class='btn btn-default' {{action 'logout'}}>Logout</button>
+
   </div>
 </div>

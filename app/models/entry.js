@@ -8,6 +8,10 @@ export default DS.Model.extend({
   body: attr('string'),
   created: attr('date'),
   modified: attr('date'),
-  user: belongsTo('user') 
+  user: belongsTo('user'),
+
+  userName: function() {
+    return this.get('user.fullName');
+  }.property('user')
 });
 
