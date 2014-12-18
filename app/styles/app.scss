@@ -157,3 +157,12 @@ a, a:hover {
   background-color: #efefff;
 }
 
+.entry-settings {
+  font-size: 1.5em;
+  .fa-cog {
+    margin-right: 0.5em;
+    font-size: 0.75em;
+    color: #aaa;
+    line-height: inherit;
+  }
+}
