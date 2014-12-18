@@ -130,15 +130,11 @@ a, a:hover {
   width: 80%;
   margin: 0 auto 0.75em auto;
   font-size: 0.5em;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .entry-select {
-  overflow: hidden;
-}
-
-.selectable-entry {
-  overflow: hidden;
   padding: 0.25em;
   border-bottom: 1px #aaa solid;
 
@@ -164,5 +160,14 @@ a, a:hover {
     font-size: 0.75em;
     color: #aaa;
     line-height: inherit;
+  }
+}
+
+.dropdown-menu {
+  border-radius: 0;
+  padding: 0;
+
+  .divider {
+    margin: 0;
   }
 }

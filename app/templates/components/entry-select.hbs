@@ -1,24 +1,28 @@
-<div class='row selectable-entry'>
-  <div class='col-xs-12'>
-    <div class='row'>
+<div class='col-xs-12'>
+  <div class='row'>
 
-      <div class='col-xs-9'>
-        <div class='title'>{{entry.title}}</div>
-      </div>
-
-      <div class='col-xs-3 entry-settings text-right'>
-        <i class='fa fa-cog'></i>
-      </div>
-
-      <div class='col-xs-6'>
-        <div class='author'>{{entry.userName}}</div>
-      </div>
-
-      <div class='col-xs-6 text-right'>
-        <div class='modified'>{{moment-time entry.modified}}</div>
-      </div>
-
+    <div class='col-xs-9'>
+      <div class='title'>{{entry.title}}</div>
     </div>
+
+    <div class='col-xs-3 entry-settings text-right'>
+      <div class='dropdown' data-toggle='dropdown'>
+        <ul class='dropdown-menu pull-right'>
+          <li><a href='#'>Share</a></li>
+          <li class='divider'></li>
+          <li><a href='#'>Delete</a></li>
+        </ul>
+        <label class='dropdown-toggle' data-toggle='dropdown'><a href='#'><i class='fa fa-cog'></a></i> </label>
+      </div>
+    </div>
+
+    <div class='col-xs-6'>
+      <div class='author'>{{entry.userName}}</div>
+    </div>
+
+    <div class='col-xs-6 text-right'>
+      <div class='modified'>{{moment-time entry.modified}}</div>
+    </div>
+
   </div>
 </div>
-

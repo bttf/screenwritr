@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['entry-select'],
+  classNames: ['row', 'entry-select'],
   classNameBindings: ['selected'],
 
   click: function() {
