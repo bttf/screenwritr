@@ -171,3 +171,24 @@ a, a:hover {
     margin: 0;
   }
 }
+
+.delete-modal {
+  padding: 0.5em;
+  border-radius: 0;
+
+  .modal-header {
+    margin: 0;
+    font-size: 1.5em;
+  }
+
+  .modal-body {
+    font-size: 2em;
+  }
+  .modal-footer {
+    font-size: 1.5em;
+  }
+
+  .btn {
+    border-radius: 0;
+  }
+}
