@@ -1,15 +1,16 @@
 <div class='row'>
   <div class='col-xs-12'>
-    <div class='scripts-list'>
+    <div class='user-panel'>
+      <div class='entries'>
+        <div class='dropdown' data-toggle='dropdown'>
+          <ul class='dropdown-menu pull-right'>
+            {{render 'entries' model.entries}}
+          </ul>
+          <label class='dropdown-toggle' data-toggle='dropdown'><a href='#'><i class='fa fa-bars'></i></a></label>
+        </div>
+        
 
-      {{render 'entries' model.entries}}
-
+      </div>
     </div>
-  </div>
-
-  <div class='col-xs-12 text-center'>
-
-    <button class='btn btn-default' {{action 'logout'}}>Logout</button>
-
   </div>
 </div>

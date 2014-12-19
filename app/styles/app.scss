@@ -67,10 +67,10 @@ a, a:hover {
 
 .control-panel {
   border-radius: 0;
-  border: 1px #aaa solid;
-  box-shadow: 0 0 10px #e0e0e0;
+  /*border: 1px #aaa solid;*/
+  /*box-shadow: 0 0 10px #e0e0e0;*/
   min-height: 300px;
-  padding-top: 1em;
+  /*padding-top: 1em;*/
   font-size: 1.5em;
 }
 
@@ -137,14 +137,15 @@ a, a:hover {
 .entry-select {
   padding: 0.25em;
   border-bottom: 1px #aaa solid;
+  font-family: 'Open Sans', sans-serif;
 
   .title {
-    font-size: 1.5em;
+    font-size: 1em;
     margin: 0;
   }
 
   .author, .modified {
-    font-size: 1em;
+    font-size: 0.75em;
     margin: 0;
   }
 }
@@ -161,16 +162,16 @@ a, a:hover {
     color: #aaa;
     line-height: inherit;
   }
-}
+  .dropdown-menu {
+    border-radius: 0;
+    padding: 0;
 
-.dropdown-menu {
-  border-radius: 0;
-  padding: 0;
-
-  .divider {
-    margin: 0;
+    .divider {
+      margin: 0;
+    }
   }
 }
+
 
 .delete-modal {
   padding: 0.5em;
@@ -187,3 +188,28 @@ a, a:hover {
     border-radius: 0;
   }
 }
+
+.user-panel {
+  padding: 1em;
+  font-size: 2em;
+  color: #333;
+  a, a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+
+  .entries {
+    padding: 0.25em;
+    display: inline-block;
+    line-height: 0.5em;
+  }
+
+  .dropdown-menu {
+    width: 600px;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+
