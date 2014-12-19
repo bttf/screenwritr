@@ -14,6 +14,7 @@ app.import('bower_components/font-awesome/css/font-awesome.css');
 
 app.import('bower_components/quill/dist/quill.min.js');
 app.import('bower_components/momentjs/moment.js');
+app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That
