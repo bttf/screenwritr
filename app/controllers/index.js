@@ -13,11 +13,10 @@ export default Ember.ObjectController.extend({
   generateTitle: function(body) {
     var title = [];
     var strBody = JSON.parse(body).ops[0].insert.split(' ');
-    for (var i = 0; i < 3 && i < strBody.length; i++) {
-      title.push(strBody[i].replace('\n', ''));
+    for (var i = 0; i < 5 && i < strBody.length; i++) {
+      title.push(strBody[i].replace('\n', ' '));
     }
-    title.push('...');
-    return title.join(' ');
+    return title.join(' ') + '...';
   },
 
   saveEntry: function(_this) {
