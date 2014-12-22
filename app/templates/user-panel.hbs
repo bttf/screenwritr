@@ -1,15 +1,22 @@
-<div class='row'>
-  <div class='col-xs-12'>
-    <div class='scripts-list'>
+<div class='panel'>
 
-      {{render 'entries' model.entries}}
+  <div class='row'>
+    <div class='col-xs-12'>
+      <div class='scripts-list'>
 
+        {{render 'entries' model.entries}}
+
+      </div>
     </div>
   </div>
 
-  <div class='col-xs-12 text-center'>
+</div>
 
-    <button class='btn btn-default' {{action 'logout'}}>Logout</button>
-
+<div class='row'>
+  <div class='col-xs-12'>
+    <div class='panel-buttons'>
+      <button type='button' class='btn btn-default' {{action 'logout'}}>Logout</button>
+    </div>
   </div>
 </div>
+

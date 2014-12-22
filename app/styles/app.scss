@@ -66,12 +66,22 @@ a, a:hover {
 }
 
 .control-panel {
+  font-size: 1.5em;
+}
+
+.panel {
   border-radius: 0;
   border: 1px #aaa solid;
   box-shadow: 0 0 10px #e0e0e0;
-  min-height: 300px;
-  padding-top: 1em;
-  font-size: 1.5em;
+  height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.panel-buttons {
+  button {
+    font-size: 0.57em;
+  }
 }
 
 .login {
@@ -125,9 +135,6 @@ a, a:hover {
 }
 
 .scripts-list {
-  border: 1px #aaa solid;
-  height: 175px;
-  width: 80%;
   margin: 0 auto 0.75em auto;
   font-size: 0.5em;
   overflow-x: hidden;
