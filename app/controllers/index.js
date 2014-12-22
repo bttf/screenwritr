@@ -5,7 +5,7 @@ export default Ember.ObjectController.extend({
   loginError: false,
   entry: Em.computed.alias('model.entry'),
   entries: Em.computed.alias('model.entries'),
-  viewingScripts: true,
+  viewingScripts: false,
   // auto-save timeouts
   saveTimeout: false,
   listTimeouts: [],

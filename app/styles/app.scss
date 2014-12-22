@@ -194,3 +194,19 @@ a, a:hover {
     border-radius: 0;
   }
 }
+
+.friends-list {
+  hr {
+    margin: 0.5em 0;
+  }
+
+  .friends-search {
+    margin: 0.5em;
+    input {
+      border: 1px #aaa solid;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 0.75em;
+    }
+  }
+}

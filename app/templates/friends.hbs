@@ -1,0 +1,11 @@
+<div class='friends-search text-center'>
+  <input type='text' placeholder='Search friends'></input>
+</div>
+
+<hr>
+
+{{#unless isSearching}}
+{{#each friend in controller}}
+{{friend.fullName}}
+{{/each}}
+{{/unless}}
