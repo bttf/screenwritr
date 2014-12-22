@@ -1,5 +1,7 @@
 <div class='panel'>
 
+  {{#if viewingScripts}}
+
   <div class='row'>
     <div class='col-xs-12'>
       <div class='scripts-list'>
@@ -10,11 +12,25 @@
     </div>
   </div>
 
+  {{else}}
+
+  <div class='row'>
+    <div class='col-xs-12'>
+      <div class='friends-list'>
+        <h2>friends go here</h2>
+      </div>
+    </div>
+  </div>
+
+  {{/if}}
+
 </div>
 
 <div class='row'>
   <div class='col-xs-12'>
     <div class='panel-buttons'>
+      <button type='button' class='btn btn-default' {{action 'viewScripts'}}>Scripts</button>
+      <button type='button' class='btn btn-default' {{action 'viewFriends'}}>Friends</button>
       <button type='button' class='btn btn-default' {{action 'logout'}}>Logout</button>
     </div>
   </div>

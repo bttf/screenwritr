@@ -5,51 +5,22 @@ export default Ember.ObjectController.extend({
   loginError: false,
   entry: Em.computed.alias('model.entry'),
   entries: Em.computed.alias('model.entries'),
-
+  viewingScripts: true,
   // auto-save timeouts
   saveTimeout: false,
   listTimeouts: [],
 
-  generateTitle: function(body) {
-    var title = [];
-    var strBody = JSON.parse(body).ops[0].insert.split(' ');
-    for (var i = 0; i < 5 && i < strBody.length; i++) {
-      title.push(strBody[i].replace('\n', ' '));
-    }
-    return title.join(' ') + '...';
-  },
-
-  saveEntry: function(_this) {
-    var body = JSON.stringify(window.quillEditor.getContents());
-    var title = this.generateTitle(body);
-
-    _this.set('entry.body', body);
-    _this.set('entry.title', title);
-
-    if (Ember.isEmpty(_this.get('created'))) {
-      _this.set('entry.created', new Date());
-      _this.set('entry.modified', new Date());
-    } else {
-      _this.set('entry.modified', new Date());
-    }
-
-    _this.get('store').find('user', _this.get('session.uid')).then(function(user) {
-      _this.set('entry.user', user);
-
-      _this.get('entry').save().then(function(entry) {
-        user.get('entries').pushObject(entry);
-        user.save();
-        _this.set('lastSave', 'Saved, ' + moment().format('h:mm:ss a'));
-      }, function(err) {
-        _this.set('saveError', err);
-      });
-    });
-  },
-
   actions: {
+    viewScripts: function() {
+      this.set('viewingScripts', true);
+    },
+
+    viewFriends: function() {
+      this.set('viewingScripts', false);
+    },
+
     selectEntry: function(entry) {
      this.set('entry', entry); 
-
      for (var i = 0; i < this.get('entries').get('length'); i++) {
        if (this.get('entries').objectAt(i) !== entry) {
          this.get('entries').objectAt(i).set('selected', false);
@@ -71,7 +42,6 @@ export default Ember.ObjectController.extend({
           _this.saveEntry(_this);
         };
       })(this);
-
       // pop existing timeouts
       if (this.get('listTimeouts').length > 0) {
         for (var i = 0; i < this.get('listTimeouts').length; i++) {
@@ -79,11 +49,9 @@ export default Ember.ObjectController.extend({
           window.clearTimeout(t);
         }
       }
-
       // setTimeout, push to list of timeouts
       this.set('timeoutId', window.setTimeout(saveFn, 2000));
       this.get('listTimeouts').push(this.get('timeoutId'));
-
       return;
     }, 
 
@@ -132,7 +100,44 @@ export default Ember.ObjectController.extend({
       });
 
     }
+  },
+
+  generateTitle: function(body) {
+    var title = [];
+    var strBody = JSON.parse(body).ops[0].insert.split(' ');
+    for (var i = 0; i < 5 && i < strBody.length; i++) {
+      title.push(strBody[i].replace('\n', ' '));
+    }
+    return title.join(' ') + '...';
+  },
+
+  saveEntry: function(_this) {
+    var body = JSON.stringify(window.quillEditor.getContents());
+    var title = this.generateTitle(body);
+
+    _this.set('entry.body', body);
+    _this.set('entry.title', title);
+
+    if (Ember.isEmpty(_this.get('created'))) {
+      _this.set('entry.created', new Date());
+      _this.set('entry.modified', new Date());
+    } else {
+      _this.set('entry.modified', new Date());
+    }
+
+    _this.get('store').find('user', _this.get('session.uid')).then(function(user) {
+      _this.set('entry.user', user);
+
+      _this.get('entry').save().then(function(entry) {
+        user.get('entries').pushObject(entry);
+        user.save();
+        _this.set('lastSave', 'Saved, ' + moment().format('h:mm:ss a'));
+      }, function(err) {
+        _this.set('saveError', err);
+      });
+    });
   }
+
 });
 
 function userExists(_this, email) {
