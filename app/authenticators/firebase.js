@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import Base from 'simple-auth/authenticators/base';
 import ENV from 'screenwritr/config/environment';
 

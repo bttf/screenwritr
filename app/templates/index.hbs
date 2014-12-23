@@ -49,9 +49,7 @@
 <pre>
 index-debug
 
-model.newEntry.body: {{model.body}}
-model.entries.length: {{model.entries.length}}
-
-entry.title: {{entry.title}}
-entry.body: {{entry.body}}
+{{#each debug in model.debug}}
+model.debug: {{debug.firstName}}
+{{/each}}
 </pre>

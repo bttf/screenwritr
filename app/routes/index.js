@@ -15,6 +15,15 @@ export default Ember.Route.extend({
         Ember.set(model, 'friends', user.get('friends'));
         Ember.set(model, 'entries', user.get('entries'));
       });
+
+      //debug
+      // this.get('store').find('user', { 
+      //   orderBy: 'email', 
+      //   equalTo: 'a@gmail.com'
+      // }).then(function(user) {
+      //   console.log('debug model, user fullname', user.get('fullName'));
+      //   Ember.set(model, 'debug', user);
+      // });
     }
   }
 });

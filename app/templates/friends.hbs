@@ -1,11 +1,19 @@
 <div class='friends-search text-center'>
-  <input type='text' placeholder='Search friends'></input>
+  {{input type='text' value=searchTerm placeholder='Enter e-mail...'}}
 </div>
 
 <hr>
 
-{{#unless isSearching}}
-{{#each friend in controller}}
-{{friend.fullName}}
-{{/each}}
-{{/unless}}
+{{#if validEmail}}
+
+  {{#if searchResults}}
+    {{#each result in searchResults}}
+      {{result.fullName}}
+    {{/each}}
+  {{else}}
+    No users found with '{{searchTerm}}'.
+  {{/if}}
+
+{{else}}
+
+{{/if}}
