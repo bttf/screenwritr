@@ -197,7 +197,7 @@ a, a:hover {
 
 .friends-list {
   hr {
-    margin: 0.5em 0;
+    margin: 0;
   }
 
   .friends-search {
@@ -219,6 +219,7 @@ a, a:hover {
 }
 
 .friend-result {
+  padding: 0.25em 0;
   .friend-result-name {
     padding: 0;
   }
