@@ -4,16 +4,35 @@
 
 <hr>
 
+<div class='friends-results'>
 {{#if validEmail}}
 
   {{#if searchResults}}
+
     {{#each result in searchResults}}
-      {{result.fullName}}
+      {{friend-result user=result friends=friends}}
     {{/each}}
+
   {{else}}
-    No users found with '{{searchTerm}}'.
+
+    <div class='no-results'>
+      No users found with '{{searchTerm}}'.
+    </div>
+
+
   {{/if}}
 
 {{else}}
 
+  <!--show pending friends-->
+  <!--show current friends-->
+
 {{/if}}
+    <div class='no-results'>
+      debug: {{searchResults}}
+      <br>
+      debug: {{searchResults.length}}
+      <br>
+      {{debug}}
+    </div>
+</div>

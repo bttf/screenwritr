@@ -210,3 +210,20 @@ a, a:hover {
     }
   }
 }
+
+.friends-results {
+  padding: 0 0.5em;
+  .no-results {
+    font-size: 0.75em;
+  }
+}
+
+.friend-result {
+  .friend-result-name {
+    padding: 0;
+  }
+
+  .send-friend-request {
+    font-size: 0.5em;
+  }
+}

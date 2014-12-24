@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
   searchTerm: '',
+  searchResults: [],
 
   validEmail: function() {
     var searchTerm = this.get('searchTerm');
@@ -12,12 +13,21 @@ export default Ember.ArrayController.extend({
   fetchUser: function() {
     var _this = this;
     if (this.get('validEmail')) {
+      var email = this.get('searchTerm');
       this.get('store').find('user', {
         orderBy: 'email',
-        equalTo: this.get('searchTerm').toLowerCase()
+        equalTo: email.toLowerCase()
       }).then(function(users) {
-        _this.set('searchResults', users);
+        // callbacks from previous searches i.e. test@test.co / test@test.com
+        // may cause previous null results to overwrite subsequent valid results. 
+        // workaround implemented
+        if (email === _this.get('searchTerm')) {
+          _this.set('searchResults', users);
+        }
       });
+    } else {
+      // clean up leftovers from previous searches
+      this.set('searchResults', Ember.A([]));
     }
   }.observes('validEmail')
 });
