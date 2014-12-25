@@ -7,13 +7,12 @@
 <hr>
 
 <div class='friends-results'>
-
   {{#if validEmail}}
   
     {{#if searchResults}}
   
       {{#each result in searchResults}}
-        {{friend-result uid=session.uid friend=result friendRequest='sendFriendRequest'}}
+        {{friend-result user=model friend=result friendRequest='sendFriendRequest'}}
       {{/each}}
   
     {{else}}

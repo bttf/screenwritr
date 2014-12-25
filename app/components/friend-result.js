@@ -6,10 +6,14 @@ export default Ember.Component.extend({
   selected: false,
 
   sameUser: function() {
-    var friend = this.get('friend');
-    var uid = this.get('uid');
-    return friend.get('id') === uid;
+    return this.get('friend') === this.get('user');
   }.property(),
+
+  alreadyPending: function() {
+    var friend = this.get('friend');
+    var user = this.get('user');
+    return friend.get('pendingFriends').contains(user);
+  }.property('friend.pendingFriends'),
 
   actions: {
     sendFr: function() {
@@ -18,7 +22,6 @@ export default Ember.Component.extend({
 
     acceptFr: function() {
       this.sendAction('accept', this.get('friend'));
-      this.set('isPending', false);
     },
 
     denyFr: function() {

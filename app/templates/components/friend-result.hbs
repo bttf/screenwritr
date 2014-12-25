@@ -8,15 +8,23 @@
   <div class='friend-controls'>
     {{#if isPending}}
 
-    Friend request pending: 
-    <a href='#' {{action 'acceptFr'}}>Accept</a> - 
-    <a href='#' {{action 'denyFr'}}>Deny</a>
+      Friend request pending: 
+      <a href='#' {{action 'acceptFr'}}>Accept</a> - 
+      <a href='#' {{action 'denyFr'}}>Deny</a>
 
     {{else}}
 
       {{#unless sameUser}}
+        
+        {{#if alreadyPending}}
 
-        <a href='#' {{action 'sendFr'}}>Send friend request</a>
+          Friend request pending
+
+        {{else}}
+
+          <a href='#' {{action 'sendFr'}}>Send friend request</a>
+
+        {{/if}}
 
       {{/unless}}
 
