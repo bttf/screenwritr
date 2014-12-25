@@ -160,6 +160,10 @@ a, a:hover {
   background-color: #efefff;
 }
 
+.pending {
+  background-color: #efffef;
+}
+
 .entry-settings {
   font-size: 1.5em;
   .fa-cog {
@@ -224,7 +228,7 @@ a, a:hover {
     padding: 0;
   }
 
-  .send-friend-request {
+  .friend-controls {
     font-size: 0.5em;
   }
 }

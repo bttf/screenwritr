@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['row', 'friend-result'],
-  classNameBindings: ['selected'],
+  classNameBindings: ['selected', 'isPending:pending'],
   selected: false,
 
   sameUser: function() {

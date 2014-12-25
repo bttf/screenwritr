@@ -1,8 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
+export default Ember.ObjectController.extend({
   searchTerm: '',
   searchResults: [],
+  pendingFriends: Em.computed.alias('model.pendingFriends'),
 
   validEmail: function() {
     var searchTerm = this.get('searchTerm');
@@ -33,10 +34,8 @@ export default Ember.ArrayController.extend({
 
   actions: {
     sendFriendRequest: function(friend) {
-      this.get('store').find('user', this.get('session.uid')).then(function(user) {
-        friend.get('pendingFriends').pushObject(user);
-        friend.save();
-      });
+      friend.get('pendingFriends').pushObject(this.get('model'));
+      friend.save();
     }
   }
 });

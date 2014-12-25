@@ -12,7 +12,7 @@ export default Ember.Route.extend({
   afterModel: function(model) {
     if (this.get('session.isAuthenticated')) {
       this.get('store').find('user', this.get('session.uid')).then(function(user) {
-        Ember.set(model, 'friends', user.get('friends'));
+        Ember.set(model, 'user', user);
         Ember.set(model, 'entries', user.get('entries'));
       });
 

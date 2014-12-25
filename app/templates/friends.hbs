@@ -23,15 +23,15 @@
 
 {{else}}
 
-  <!--show pending friends-->
+  {{#if pendingFriends}}
+  
+    {{#each friend in pendingFriends}}
+      {{friend-result friend=friend isPending='true'}}
+    {{/each}}
+
+  {{/if}}
+
   <!--show current friends-->
 
 {{/if}}
-    <div class='no-results'>
-      debug: {{searchResults}}
-      <br>
-      debug: {{searchResults.length}}
-      <br>
-      {{debug}}
-    </div>
 </div>

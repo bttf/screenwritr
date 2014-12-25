@@ -4,9 +4,22 @@
 
 <div class='col-xs-9 friend-result-name'>
   {{friend.fullName}}
-  {{#unless sameUser}}
-  <div class='send-friend-request'>
-    <a href='#' {{action 'sendFr'}}>Send friend request</a>
+
+  <div class='friend-controls'>
+    {{#if isPending}}
+
+    Friend request pending: 
+    <a href='#'>Accept</a> - 
+    <a href='#'>Deny</a>
+
+    {{else}}
+
+      {{#unless sameUser}}
+
+        <a href='#' {{action 'sendFr'}}>Send friend request</a>
+
+      {{/unless}}
+
+    {{/if}}
   </div>
-  {{/unless}}
 </div>
