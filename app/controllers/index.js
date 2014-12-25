@@ -2,15 +2,15 @@ import Ember from 'ember';
 import ENV from 'screenwritr/config/environment';
 
 export default Ember.ObjectController.extend({
-  loginError: false,
-  entry: Em.computed.alias('model.entry'),
-  entries: Em.computed.alias('model.entries'),
-  viewingScripts: false,
-  // auto-save timeouts
-  saveTimeout: false,
-  listTimeouts: [],
+  loginError     : false,
+  entry          : Em.computed.alias('model.entry'),
+  entries        : Em.computed.alias('model.entries'),
+  viewingScripts : false,
+  saveTimeout    : false,
+  listTimeouts   : [],
 
   actions: {
+
     viewScripts: function() {
       this.set('viewingScripts', true);
     },
@@ -28,8 +28,7 @@ export default Ember.ObjectController.extend({
          this.get('entries').objectAt(i).set('selected', true);
        }
      }
-     //TODO: get rid of this workaround
-     window.quillEditor.setContents(JSON.parse(this.get('entry.body')));
+     window.quillEditor.setContents(JSON.parse(this.get('entry.body'))); //TODO: get rid of this workaround
     },
     
     manualSave: function() {
@@ -63,7 +62,7 @@ export default Ember.ObjectController.extend({
         // toggle off error state if exists
         if (this.get('loginError')) this.set('loginError', false);
 
-        // if user exists, log in, otherwise create user 
+        // if user exists, authenticate, otherwise create user 
         var _this = this;
         userExists(this, email).then(function(user) {
           _this.get('session').authenticate('authenticator:firebase', {
@@ -84,7 +83,6 @@ export default Ember.ObjectController.extend({
           _this.transitionToRoute('createUser', newUser);
         });
       } 
-
       else {
         this.set('loginError', 'Please fill in all fields');
       }

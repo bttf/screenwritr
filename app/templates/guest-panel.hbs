@@ -2,17 +2,24 @@
   <div class='row'>
     <div class='col-xs-12'>
       <br>
+
       <div class='text-center'>
         Create Your Account
       </div>
 
       <div class='login'>
         <form>
+
           <div {{bind-attr class=':form-group loginError:has-error'}}>
+
             {{input type='text' id='email' class='form-control' placeholder='e-mail'}}
+
           </div>
+
           <div {{bind-attr class=':form-group loginError:has-error'}}>
+
             {{input type='password' id='password' class='form-control' placeholder='password'}}
+
           </div>
 
           <div class='button-div text-right'>
@@ -20,15 +27,17 @@
           </div>
 
           {{#if loginError}}
-          <div class='error-field'>
-            {{loginError}}
-          </div>
+
+            <div class='error-field'>
+
+              {{loginError}}
+
+            </div>
+
           {{/if}}
 
         </form>
       </div>
-
     </div>
   </div>
-
 </div>

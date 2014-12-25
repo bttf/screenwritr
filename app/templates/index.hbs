@@ -1,26 +1,37 @@
 <div class="row">
 
   <div class="stage col-xs-12 col-sm-12 col-md-9">
-    {{view 'editor'}}
-    <br>
 
+    {{view 'editor'}}
+
+    <br>
     <div class="row">
       <div class="col-xs-6 saved-notice text-success">
+
         {{#if session.isAuthenticated}}
-        <button class='btn btn-default save-button' {{action 'manualSave'}}>Save</button>
-        {{#if lastSave}}
-        {{lastSave}}
-        {{/if}}
-        <div class='saved-notice text-danger'>
-          {{#if saveError}}
-          {{saveError}}
+
+          <button class='btn btn-default save-button' {{action 'manualSave'}}>Save</button>
+
+          {{#if lastSave}}
+            {{lastSave}}
           {{/if}}
-        </div>
+
+          <div class='saved-notice text-danger'>
+
+            {{#if saveError}}
+              {{saveError}}
+            {{/if}}
+
+          </div>
+
         {{/if}}
+
       </div>
 
       <div class="col-xs-6 text-right">
+
         {{partial 'toolbar'}}
+
       </div>
     </div>
   </div>
@@ -28,15 +39,19 @@
   <div class="col-xs-12 col-sm-12 col-md-3">
     <div class='row'>
       <div class='col-xs-12'>
-
         <div class='control-panel'>
-          {{#if session.isAuthenticated}}
-          {{partial 'user-panel'}}
-          {{else}}
-          {{partial 'guest-panel'}}
-          {{/if}}
-        </div>
 
+          {{#if session.isAuthenticated}}
+
+            {{partial 'user-panel'}}
+
+          {{else}}
+
+            {{partial 'guest-panel'}}
+
+          {{/if}}
+
+        </div>
       </div>
     </div>
   </div>

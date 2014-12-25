@@ -1,38 +1,45 @@
 <div class='friends-search text-center'>
+
   {{input type='text' value=searchTerm placeholder='Enter e-mail...'}}
+
 </div>
 
 <hr>
 
 <div class='friends-results'>
-{{#if validEmail}}
 
-  {{#if searchResults}}
-
-    {{#each result in searchResults}}
-      {{friend-result uid=session.uid friend=result friendRequest='sendFriendRequest'}}
-    {{/each}}
-
-  {{else}}
-
-    <div class='no-results'>
-      No users found with '{{searchTerm}}'.
-    </div>
-
-  {{/if}}
-
-{{else}}
-
-  {{#if model.pendingFriends}}
+  {{#if validEmail}}
   
-    {{#each friend in model.pendingFriends}}
-      {{log 'waht the f'}}
-      {{friend-result friend=friend isPending='true' accept='makeFriends' deny='denyFriends'}}
-    {{/each}}
-
+    {{#if searchResults}}
+  
+      {{#each result in searchResults}}
+        {{friend-result uid=session.uid friend=result friendRequest='sendFriendRequest'}}
+      {{/each}}
+  
+    {{else}}
+  
+      <div class='no-results'>
+        No users found with '{{searchTerm}}'.
+      </div>
+  
+    {{/if}}
+  
+  {{else}}
+  
+    {{#if model.pendingFriends}}
+    
+      {{#each friend in model.pendingFriends}}
+        {{log 'waht the f'}}
+        {{friend-result friend=friend isPending='true' accept='makeFriends' deny='denyFriends'}}
+      {{/each}}
+  
+    {{/if}}
+  
+    <!--show current friends-->
+  
   {{/if}}
 
-  <!--show current friends-->
-
-{{/if}}
+  <div class='debug' style='background-color: #eee; font-size: 0.75em;'>
+    model: {{model}}
+  </div>
 </div>
