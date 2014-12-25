@@ -3,8 +3,10 @@
 </div>
 
 <div class='col-xs-9 friend-result-name'>
-  {{user.fullName}}
+  {{friend.fullName}}
+  {{#unless sameUser}}
   <div class='send-friend-request'>
-    <a href='#'>Send friend request</a>
+    <a href='#' {{action 'sendFr'}}>Send friend request</a>
   </div>
+  {{/unless}}
 </div>

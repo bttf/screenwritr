@@ -137,7 +137,6 @@ export default Ember.ObjectController.extend({
       });
     });
   }
-
 });
 
 function userExists(_this, email) {

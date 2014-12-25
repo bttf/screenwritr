@@ -11,6 +11,7 @@ export default DS.Model.extend({
   bio: attr('string'),
   entries: hasMany('entry', { async: true }),
   friends: hasMany('user', { async: true}),
+  pendingFriends: hasMany('user', { inverse: 'friends', async: true}),
 
   fullName: function() {
     var fName, lName;

@@ -10,7 +10,7 @@
   {{#if searchResults}}
 
     {{#each result in searchResults}}
-      {{friend-result user=result friends=friends}}
+      {{friend-result uid=session.uid friend=result friendRequest='sendFriendRequest'}}
     {{/each}}
 
   {{else}}
@@ -18,7 +18,6 @@
     <div class='no-results'>
       No users found with '{{searchTerm}}'.
     </div>
-
 
   {{/if}}
 

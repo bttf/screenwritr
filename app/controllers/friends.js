@@ -29,5 +29,14 @@ export default Ember.ArrayController.extend({
       // clean up leftovers from previous searches
       this.set('searchResults', Ember.A([]));
     }
-  }.observes('validEmail')
+  }.observes('validEmail'),
+
+  actions: {
+    sendFriendRequest: function(friend) {
+      this.get('store').find('user', this.get('session.uid')).then(function(user) {
+        friend.get('pendingFriends').pushObject(user);
+        friend.save();
+      });
+    }
+  }
 });
