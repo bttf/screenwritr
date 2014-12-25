@@ -23,10 +23,11 @@
 
 {{else}}
 
-  {{#if pendingFriends}}
+  {{#if model.pendingFriends}}
   
-    {{#each friend in pendingFriends}}
-      {{friend-result friend=friend isPending='true'}}
+    {{#each friend in model.pendingFriends}}
+      {{log 'waht the f'}}
+      {{friend-result friend=friend isPending='true' accept='makeFriends' deny='denyFriends'}}
     {{/each}}
 
   {{/if}}

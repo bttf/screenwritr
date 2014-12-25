@@ -14,6 +14,15 @@ export default Ember.Component.extend({
   actions: {
     sendFr: function() {
       this.sendAction('friendRequest', this.get('friend'));
+    },
+
+    acceptFr: function() {
+      this.sendAction('accept', this.get('friend'));
+      this.set('isPending', false);
+    },
+
+    denyFr: function() {
+      this.sendAction('deny');
     }
   },
 

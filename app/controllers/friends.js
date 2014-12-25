@@ -36,6 +36,23 @@ export default Ember.ObjectController.extend({
     sendFriendRequest: function(friend) {
       friend.get('pendingFriends').pushObject(this.get('model'));
       friend.save();
+    },
+
+    makeFriends: function(friend) {
+      var user = this.get('model');
+      console.log('making friends, one day');
+      user.get('friends').pushObject(friend);
+      user.get('pendingFriends').removeObject(friend);
+      user.save();
+    },
+
+    denyFriends: function() {
+      console.log('guess i\'ll go now');
+    },
+
+    debug: function() {
+      console.log('debug shite brutha');
+      console.log('no model i bet', this.get('model'));
     }
   }
 });
