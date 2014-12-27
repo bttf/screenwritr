@@ -32,6 +32,7 @@ export default Ember.Component.extend({
   mouseEnter: function() {
     this.set('selected', true);
   },
+
   mouseLeave: function() {
     this.set('selected', false);
   }

@@ -25,11 +25,10 @@
   
   {{else}}
   
-    {{#if model.pendingFriends}}
+    {{#if pendingFriends}}
     
-      {{#each friend in model.pendingFriends}}
-        {{log 'waht the f'}}
-        {{friend-result friend=friend isPending='true' accept='makeFriends' deny='denyFriends'}}
+      {{#each friend in pendingFriends}}
+        {{friend-result friend=friend isPending='true' accept='acceptFriend' deny='denyFriends'}}
       {{/each}}
   
     {{/if}}
@@ -39,6 +38,10 @@
   {{/if}}
 
   <div class='debug' style='background-color: #eee; font-size: 0.75em;'>
-    model: {{model}}
+    model: {{model}}<br>
+    validEmail: {{validEmail}} <br>
+    pendingFriends.length: {{pendingFriends.length}} <br>
+    debug, <a href='#' {{action 'debugSave'}}>save model</a> <br>
+    debug, <a href='#' {{action 'debugReload'}}>reload model</a>
   </div>
 </div>

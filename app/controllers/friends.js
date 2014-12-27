@@ -33,21 +33,56 @@ export default Ember.ObjectController.extend({
   }.observes('validEmail'),
 
   actions: {
+    debugReload: function() {
+      var user = this.get('model');
+
+      console.log('isLoading:', user.get('isLoading'));
+      console.log('isLoaded', user.get('isLoaded'));
+      console.log('isDirty', user.get('isDirty'));
+      console.log('isSaving', user.get('isSaving'));
+
+      user.reload().then(function(user) {
+        console.log('user:', user);
+        console.log('user.friends.length:', user.get('friends.length'));
+        console.log('user.pendingFriends.length:', user.get('pendingFriends.length'));
+      });
+      this.get('model.pendingFriends').reload().then(function() {
+        console.log('reloaded pendingFriends');
+      });
+    }, 
+
+    debugSave: function() {
+      this.get('model').save().then(function(user) {
+      });
+    },
+
     sendFriendRequest: function(friend) {
+      // seems to be needed only when developing/directly manipulating backend
+      if (friend.get('friends').contains(this.get('model'))) {
+        friend.get('friends').removeObject(this.get('model'));
+      }
+
       friend.get('pendingFriends').pushObject(this.get('model'));
       friend.save();
     },
 
-    makeFriends: function(friend) {
+    acceptFriend: function(friend) {
       var user = this.get('model');
-      console.log('making friends, one day');
       user.get('friends').pushObject(friend);
-      user.get('pendingFriends').removeObject(friend);
-      user.save();
+
+      // workaround; see https://github.com/firebase/emberfire/issues/143
+      user.reload().then(function(user) {
+        user.get('pendingFriends').removeObject(friend);
+        user.save().then(function(user) {
+          user.get('pendingFriends').removeObject(friend);
+        });
+        friend.save();
+      });
     },
 
     denyFriends: function() {
-      console.log('guess i\'ll go now');
+      console.log('deny friend');
+      this.get('model').save();
     },
 
     debug: function() {
