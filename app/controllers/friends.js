@@ -57,26 +57,26 @@ export default Ember.ObjectController.extend({
     },
 
     sendFriendRequest: function(friend) {
-      // seems to be needed only when developing/directly manipulating backend
-      if (friend.get('friends').contains(this.get('model'))) {
-        friend.get('friends').removeObject(this.get('model'));
-      }
-
-      friend.get('pendingFriends').pushObject(this.get('model'));
-      friend.save();
+      var user = this.get('model');
+      friend.get('pendingFriends').then(function(pFriends) {
+        pFriends.addRecord(user);
+        friend.save();
+      });
     },
 
     acceptFriend: function(friend) {
       var user = this.get('model');
-      user.get('friends').pushObject(friend);
-
-      // workaround; see https://github.com/firebase/emberfire/issues/143
-      user.reload().then(function(user) {
-        user.get('pendingFriends').removeObject(friend);
-        user.save().then(function(user) {
-          user.get('pendingFriends').removeObject(friend);
+      user.get('friends').then(function(friends) {
+        // workaround; see https://github.com/firebase/emberfire/issues/143
+        user.reload().then(function(user) {
+          friends.addRecord(friend);
+          user.get('pendingFriends').then(function(pFriends) {
+            pFriends.removeRecord(friend);
+            user.save();
+            friend.save().then(function() {
+            });
+          });
         });
-        friend.save();
       });
     },
 
