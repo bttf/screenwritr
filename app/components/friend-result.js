@@ -5,8 +5,16 @@ export default Ember.Component.extend({
   classNameBindings: ['selected', 'isPending:pending'],
   selected: false,
 
-  sameUser: function() {
-    return this.get('friend') === this.get('user');
+  sameUserOrFriend: function() {
+    var user = this.get('user');
+    var friend = this.get('friend');
+    return user === friend || user.get('friends').contains(friend);
+  }.property(),
+
+  currentFriend: function() {
+    var user = this.get('user');
+    var friend = this.get('friend');
+    return user.get('friends').contains(friend);
   }.property(),
 
   alreadyPending: function() {

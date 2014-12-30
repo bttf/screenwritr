@@ -34,18 +34,12 @@
     {{/if}}
   
     {{#if friends}}
+
       {{#each friend in friends}}
-        {{friend-result friend=friend user=model.user}}
+        {{friend-result friend=friend user=model}}
       {{/each}}
+
     {{/if}}
   
   {{/if}}
-
-  <div class='debug' style='background-color: #eee; font-size: 0.75em;'>
-    model: {{model}}<br>
-    validEmail: {{validEmail}} <br>
-    pendingFriends.length: {{pendingFriends.length}} <br>
-    debug, <a href='#' {{action 'debugSave'}}>save model</a> <br>
-    debug, <a href='#' {{action 'debugReload'}}>reload model</a>
-  </div>
 </div>
