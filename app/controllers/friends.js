@@ -33,50 +33,34 @@ export default Ember.ObjectController.extend({
   }.observes('validEmail'),
 
   actions: {
-    debugReload: function() {
-      var user = this.get('model');
-
-      console.log('isLoading:', user.get('isLoading'));
-      console.log('isLoaded', user.get('isLoaded'));
-      console.log('isDirty', user.get('isDirty'));
-      console.log('isSaving', user.get('isSaving'));
-
-      user.reload().then(function(user) {
-        console.log('user:', user);
-        console.log('user.friends.length:', user.get('friends.length'));
-        console.log('user.pendingFriends.length:', user.get('pendingFriends.length'));
-      });
-      this.get('model.pendingFriends').reload().then(function() {
-        console.log('reloaded pendingFriends');
-      });
-    }, 
-
-    debugSave: function() {
-      this.get('model').save().then(function(user) {
-      });
-    },
-
     sendFriendRequest: function(friend) {
       var user = this.get('model');
       friend.get('pendingFriends').then(function(pFriends) {
-        pFriends.addRecord(user);
+        pFriends.addObject(user);
         friend.save();
       });
     },
 
     acceptFriend: function(friend) {
       var user = this.get('model');
-      user.get('friends').then(function(friends) {
-        // workaround; see https://github.com/firebase/emberfire/issues/143
-        user.reload().then(function(user) {
-          friends.addRecord(friend);
-          user.get('pendingFriends').then(function(pFriends) {
-            pFriends.removeRecord(friend);
-            user.save();
-            friend.save().then(function() {
-            });
+      user.reload().then(function(user) {
+        user.get('pendingFriends').then(function(pFriends) {
+          pFriends.removeObject(friend);
+          user.save().then(function() {
+            // enter workaround
+            // https://github.com/firebase/emberfire/issues/166
+            pFriends.removeObject(friend);
+            console.log('we deleted a pendingFriend supposedly');
           });
         });
+      });
+      user.get('friends').then(function(friends) {
+        friends.addObject(friend);
+        user.save();
+      });
+      friend.get('friends').then(function(friends) {
+        friends.addObject(user);
+        friend.save();
       });
     },
 

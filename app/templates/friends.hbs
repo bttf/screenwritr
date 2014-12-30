@@ -33,7 +33,11 @@
   
     {{/if}}
   
-    <!--show current friends-->
+    {{#if friends}}
+      {{#each friend in friends}}
+        {{friend-result friend=friend user=model.user}}
+      {{/each}}
+    {{/if}}
   
   {{/if}}
 
