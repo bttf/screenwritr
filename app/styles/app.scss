@@ -29,7 +29,7 @@ a, a:hover {
   a,a:hover {
     color: #333;
     text-decoration: none;
-  }
+}
 }
 
 .header-name {
@@ -70,18 +70,17 @@ a, a:hover {
 }
 
 .panel {
-  border-radius: 0;
-  border: 1px #aaa solid;
-  box-shadow: 0 0 10px #e0e0e0;
   height: 300px;
   overflow-x: hidden;
   overflow-y: auto;
+  border: 0;
+  box-shadow: 0 0 0 #ccc;
 }
 
 .panel-buttons {
   button {
     font-size: 0.57em;
-  }
+}
 }
 
 .login {
@@ -121,7 +120,6 @@ a, a:hover {
     margin-top: 0.5em;
     font-size: 1.5em;
   }
-
   padding: 2em;
 }
 
@@ -149,7 +147,7 @@ a, a:hover {
     font-size: 1.5em;
     margin: 0;
   }
-
+  
   .author, .modified {
     font-size: 1em;
     margin: 0;
@@ -193,7 +191,7 @@ a, a:hover {
   .modal-footer {
     font-size: 1.5em;
   }
-
+  
   .btn {
     border-radius: 0;
   }
@@ -203,7 +201,7 @@ a, a:hover {
   hr {
     margin: 0;
   }
-
+  
   .friends-search {
     margin: 0.5em;
     input {
@@ -227,7 +225,7 @@ a, a:hover {
   .friend-result-name {
     padding: 0;
   }
-
+  
   .friend-controls {
     font-size: 0.5em;
   }

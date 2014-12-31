@@ -21,7 +21,7 @@ export default Ember.ObjectController.extend({
 
     selectEntry: function(entry) {
      this.set('entry', entry); 
-     for (var i = 0; i < this.get('entries').get('length'); i++) {
+     for (var i = 0; i < this.get('entries.length'); i++) {
        if (this.get('entries').objectAt(i) !== entry) {
          this.get('entries').objectAt(i).set('selected', false);
        } else {

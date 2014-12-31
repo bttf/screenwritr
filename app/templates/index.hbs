@@ -1,5 +1,4 @@
 <div class="row">
-
   <div class="stage col-xs-12 col-sm-12 col-md-9">
 
     {{view 'editor'}}
@@ -27,7 +26,6 @@
         {{/if}}
 
       </div>
-
       <div class="col-xs-6 text-right">
 
         {{partial 'toolbar'}}
@@ -61,10 +59,3 @@
 {{init-quill}}
 {{init-quill-toolbar}}
 
-<pre>
-index-debug
-
-{{#each debug in model.debug}}
-model.debug: {{debug.firstName}}
-{{/each}}
-</pre>
