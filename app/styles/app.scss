@@ -140,21 +140,24 @@ a, a:hover {
 }
 
 .entry-select {
+  margin: 1em auto;
   padding: 0.25em;
+  width: 90%;
 
   .title {
     font-size: 2.0em;
     margin: 0;
   }
   
-  .author, .modified {
+  .info {
     font-size: 1.5em;
-    margin: 0;
+    margin-left: 0.5em;
   }
 }
 
 .selected {
   background-color: #efefff;
+  box-shadow: 0 0 8px #ccc;
 }
 
 .pending {
