@@ -1,28 +1,12 @@
 <div class='col-xs-12'>
-  <div class='row'>
 
-    <div class='col-xs-10'>
-      <div class='title'>{{entry.title}}</div>
-    </div>
-
-    <div class='col-xs-2 entry-settings text-right'>
-      <div class='dropdown' data-toggle='dropdown'>
-        <ul class='dropdown-menu pull-right'>
-          <li><a href='#'>Share</a></li>
-          <li class='divider'></li>
-          <li><a href='#' data-toggle='modal' data-target='.confirm-delete-modal-sm'>Delete</a></li>
-        </ul>
-        <label class='dropdown-toggle' data-toggle='dropdown'><a href='#'><i class='fa fa-cog'></a></i> </label>
-      </div>
-    </div>
-
-    <div class='col-xs-6'>
-      <div class='author'>{{entry.userName}}</div>
-    </div>
-
-    <div class='col-xs-6 text-right'>
-      <div class='modified'>{{moment-time entry.modified}}</div>
-    </div>
-
+  <div class='title'>
+    <a href='#'>{{entry.title}}</a>
   </div>
+
+  <div class='author'>
+    {{entry.userName}}
+  </div>
+
 </div>
+

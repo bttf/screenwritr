@@ -141,15 +141,14 @@ a, a:hover {
 
 .entry-select {
   padding: 0.25em;
-  border-bottom: 1px #aaa solid;
 
   .title {
-    font-size: 1.5em;
+    font-size: 2.0em;
     margin: 0;
   }
   
   .author, .modified {
-    font-size: 1em;
+    font-size: 1.5em;
     margin: 0;
   }
 }
@@ -229,4 +228,10 @@ a, a:hover {
   .friend-controls {
     font-size: 0.5em;
   }
+}
+
+.title-input {
+  margin-top: 1em;
+  font-size: 1.5em;
+  width: 35%;
 }

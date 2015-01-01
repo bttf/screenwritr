@@ -111,7 +111,7 @@ export default Ember.ObjectController.extend({
 
   saveEntry: function(_this) {
     var body = JSON.stringify(window.quillEditor.getContents());
-    var title = this.generateTitle(body);
+    var title = Ember.isEmpty(this.get('entry.title')) ? this.generateTitle(body) : this.get('entry.title');
 
     _this.set('entry.body', body);
     _this.set('entry.title', title);
