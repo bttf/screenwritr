@@ -1,0 +1,39 @@
+<div id='editor'>
+
+  {{entry.body}}
+
+</div>
+<div class='row'>
+  <div class='col-xs-12'>
+
+    {{input type='text' value=entry.title class='title-input' placeholder='Title'}}
+
+    <div class="saved-notice text-success">
+
+      {{#if session.isAuthenticated}}
+
+        <button class='btn btn-default save-button' {{action 'manualSave'}}>Save</button>
+
+        {{#if lastSave}}
+          {{lastSave}}
+        {{/if}}
+
+        <div class='saved-notice text-danger'>
+
+          {{#if saveError}}
+            {{saveError}}
+          {{/if}}
+
+        </div>
+
+      {{/if}}
+
+    </div>
+
+    <div class='pull-right'>
+
+      {{partial 'toolbar'}}
+
+    </div>
+  </div>
+</div>

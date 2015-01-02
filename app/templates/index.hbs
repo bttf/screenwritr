@@ -1,37 +1,8 @@
 <div class="row">
   <div class="stage col-xs-12 col-sm-12 col-md-9">
 
-    {{view 'editor'}}
+    {{script-editor entry=model.entry isAuthenticated=session.isAuthenticated manualSaveAction='manualSave' autoSaveAction='toggleSaveTimeout' lastSave=lastSave saveError=saveError}}
 
-    <br>
-    <div class="row">
-      <div class="col-xs-6 saved-notice text-success">
-
-        {{#if session.isAuthenticated}}
-
-          <button class='btn btn-default save-button' {{action 'manualSave'}}>Save</button>
-
-          {{#if lastSave}}
-            {{lastSave}}
-          {{/if}}
-
-          <div class='saved-notice text-danger'>
-
-            {{#if saveError}}
-              {{saveError}}
-            {{/if}}
-
-          </div>
-
-        {{/if}}
-
-      </div>
-      <div class="col-xs-6 text-right">
-
-        {{partial 'toolbar'}}
-
-      </div>
-    </div>
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-3">

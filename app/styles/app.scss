@@ -19,7 +19,6 @@ a, a:hover {
 }
 
 .stage {
-  margin-bottom: 1.5em;
 }
 
 .logo {
@@ -29,7 +28,7 @@ a, a:hover {
   a,a:hover {
     color: #333;
     text-decoration: none;
-}
+  }
 }
 
 .header-name {
@@ -47,10 +46,10 @@ a, a:hover {
 #editor {
   height: 300px;
   width: 100%;
+  margin-bottom: 1em;
   box-shadow: 0 0 10px #ccc;
   border: 1px #aaa solid;
   border-radius: 0;
-
   font-family: courier;
   font-size: 1.5em;
 }
@@ -63,6 +62,10 @@ a, a:hover {
 
 .save-button {
   margin-right: 1em;
+  padding: 0.2em 0.6em;
+  font-size: 1.5em;
+  font-family: 'Rokkitt', serif;
+  border-radius: 0;
 }
 
 .control-panel {
@@ -124,6 +127,7 @@ a, a:hover {
 }
 
 .saved-notice {
+  display: inline;
   font-size: 1em;
   font-family: 'Open Sans', sans-serif;
 }
@@ -234,7 +238,7 @@ a, a:hover {
 }
 
 .title-input {
-  margin-top: 1em;
   font-size: 1.5em;
   width: 35%;
+  margin: 0 1em 0 0;
 }
