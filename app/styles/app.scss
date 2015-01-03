@@ -80,12 +80,6 @@ a, a:hover {
   box-shadow: 0 0 0 #ccc;
 }
 
-.panel-buttons {
-  button {
-    font-size: 0.57em;
-  }
-}
-
 .login {
   .button-div, input, .error-field {
     width: 80%;
@@ -241,4 +235,8 @@ a, a:hover {
   font-size: 1.5em;
   width: 35%;
   margin: 0 1em 0 0;
+}
+
+.panel-buttons-left {
+  margin-left: 1.5em;
 }
