@@ -3,9 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model: function() {
     return Ember.RSVP.hash({
-      entry: this.get('store').createRecord('entry', {
-        body: 'testing'
-      })
+      entry: this.get('store').createRecord('entry')
     });
   },
 

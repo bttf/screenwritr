@@ -11,6 +11,11 @@ export default Ember.ObjectController.extend({
 
   actions: {
 
+    newEntry: function() {
+      this.set('entry', this.get('store').createRecord('entry'));
+      window.quillEditor.deleteText(0, window.quillEditor.getLength());
+    },
+
     viewScripts: function() {
       this.set('viewingScripts', true);
     },

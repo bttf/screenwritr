@@ -14,7 +14,11 @@ export default Ember.ArrayController.extend({
         user.get('entries').removeObject(entry);
         user.save();
       });
-    
+
+      // reset entry
+      this.set('controllers.index.entry', this.get('store').createRecord('entry'));
+      window.quillEditor.deleteText(0, window.quillEditor.getLength());
+
       entry.deleteRecord();
       entry.save().then(function() {
       }, function(err) {
