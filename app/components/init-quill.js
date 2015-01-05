@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 
     Ember.$('#editor').height(sizeRatio * window.innerHeight);
 
-    $(window).resize(function() {
+    Ember.$(window).resize(function() {
       Ember.$('#editor').height(sizeRatio * window.innerHeight);
     });
 

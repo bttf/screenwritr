@@ -20,7 +20,7 @@ export default Ember.Component.extend({
   disableOtherActives: function(list, item) {
     for (var i = 0; i < list.length; i++) {
       if (item !== list[i]) {
-        $(list[i]).removeClass('ql-active');
+        Ember.$(list[i]).removeClass('ql-active');
       }
     }
   },

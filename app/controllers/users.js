@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
     },
     saveUser: function(user) {
       var _this = this;
-      user.save().then(function(res) {
+      user.save().then(function() {
         console.log('user saved');
         _this.set('creatingUser', false);
       }, function(err) {

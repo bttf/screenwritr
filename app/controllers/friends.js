@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.ObjectController.extend({
   searchTerm: '',
   searchResults: [],
-  pendingFriends: Em.computed.alias('model.pendingFriends'),
+  pendingFriends: Ember.computed.alias('model.pendingFriends'),
 
   validEmail: function() {
     var searchTerm = this.get('searchTerm');

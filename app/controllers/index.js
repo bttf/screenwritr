@@ -1,10 +1,9 @@
 import Ember from 'ember';
-import ENV from 'screenwritr/config/environment';
 
 export default Ember.ObjectController.extend({
   loginError     : false,
-  entry          : Em.computed.alias('model.entry'),
-  entries        : Em.computed.alias('model.entries'),
+  entry          : Ember.computed.alias('model.entry'),
+  entries        : Ember.computed.alias('model.entries'),
   viewingScripts : true,
   saveTimeout    : false,
   listTimeouts   : [],
@@ -60,8 +59,8 @@ export default Ember.ObjectController.extend({
     }, 
 
     login: function() {
-      var email = $('#email').val();
-      var pass = $('#password').val();
+      var email = Ember.$('#email').val();
+      var pass = Ember.$('#password').val();
 
       if (!Ember.isEmpty(email) && !Ember.isEmpty(pass)) {
         // toggle off error state if exists
@@ -100,6 +99,7 @@ export default Ember.ObjectController.extend({
         _this.transitionToRoute('index');
       }, function(err) {
         console.log('I\'m afraid I can\'t do that');
+        console.log(err);
       });
 
     }
@@ -134,7 +134,7 @@ export default Ember.ObjectController.extend({
       _this.get('entry').save().then(function(entry) {
         user.get('entries').pushObject(entry);
         user.save();
-        _this.set('lastSave', 'Saved, ' + moment().format('h:mm:ss a'));
+        _this.set('lastSave', 'Saved, ' + window.moment().format('h:mm:ss a'));
       }, function(err) {
         _this.set('saveError', err);
       });

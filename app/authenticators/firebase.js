@@ -31,8 +31,8 @@ export default Base.extend({
     });
   },
 
-  invalidate: function(data) {
-    return new Ember.RSVP.Promise(function(resolve, reject) {
+  invalidate: function() {
+    return new Ember.RSVP.Promise(function(resolve) {
       var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com');
       ref.unauth();
       resolve();
