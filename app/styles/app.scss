@@ -44,7 +44,8 @@ a, a:hover {
 }
 
 #editor {
-  height: 300px;
+  min-height: 300px;
+  height: auto;
   width: 100%;
   margin-bottom: 1em;
   box-shadow: 0 0 10px #ccc;
