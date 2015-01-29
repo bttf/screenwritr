@@ -1,6 +1,24 @@
+<div {{bind-attr class=':header session.isAuthenticated:app-bar'}}>
 
-<div class='header'>
-  <div class='headline'>{{#link-to 'index'}}screenwritr{{/link-to}}</div>
+  {{#if session.isAuthenticated}}
+
+    <div class='row'>
+      <div class='col-xs-6'>
+        <div class='headline'>{{#link-to 'index'}}screenwritr{{/link-to}}</div>
+      </div>
+      <div class='col-xs-6 text-right'>
+        <div class='e-mail'>
+          {{displayName}}
+        </div>
+      </div>
+    </div>
+
+  {{else}}
+
+    <div class='headline'>{{#link-to 'index'}}screenwritr{{/link-to}}</div>
+
+  {{/if}}
+
 </div>
 
 {{outlet}}
