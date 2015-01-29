@@ -1,9 +1,118 @@
+@import url(http://fonts.googleapis.com/css?family=Noto+Serif|Open+Sans|Raleway|Droid+Serif|Poiret+One);
+
+$bodyFontColor: #333;
+$bodyBgColor: #FFF5F5;
+$headerBgColor: #FFF0F0;
+$headlineColor: #666;
+
 html, body {
-  margin: 20px;
-  height: 100%;
-  font-family: 'Rokkitt', serif;
+  color: $bodyFontColor;
+  font-size: 100%;
   font-weight: 400;
+  font-family: 'Raleway', serif;
+  background-color: $bodyBgColor;
 }
+
+.header {
+  border-bottom: 1px #CCC solid;
+  background-color: $headerBgColor;
+  .headline {
+    display: inline;
+    margin: 0 0.25em;
+    font-family: 'Poiret One', sans-serif;
+    a, a:hover, a:focus {
+      color: $headlineColor;
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .headline {
+    font-size: 4em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .headline {
+    font-size: 3em;
+  }
+}
+
+.hero-banner {
+  z-index: 0;
+  position: relative;
+  background: url('https://raw.githubusercontent.com/bttf/screenwritr.io/master/public/img/hero00.png');
+  height: 300px;
+  margin-bottom: 2em;
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+  }
+  .hero-text {
+    color: #EEE;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 10px #000;
+    .hero-subtitle {
+      font-size: 0.32em;
+      text-shadow: 0 0 10px #000;
+      font-weight: normal;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-text {
+    padding-top: 2em;
+    font-size: 3em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero-text {
+    padding-top: 1.5em;
+    font-size: 4em;
+  }
+}
+
+.lists li {
+  margin: 0.5em 0;
+  line-height: 1.8em;
+}
+
+.list-title {
+  font-family: 'Poiret One', sans-serif;
+  font-size: 2em;
+}
+
+.login-box {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  .login-headline {
+    font-size: 2em;
+    font-family: 'Poiret One', sans-serif;
+    margin-bottom: 0.5em;
+  }
+  input {
+    width: 75%;
+    padding: 0.5em;
+    margin: 0.5em 0;
+  }
+}
+
+
+
+
+
+
 
 a, a:hover {
   color: #333;
