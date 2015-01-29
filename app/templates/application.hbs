@@ -1,36 +1,3 @@
-{{!--
-<div class="container-fluid">
-  <div class="row main-div">
-    <div class="col-xs-12 col-sm-6">
-
-      <div class="logo">
-
-        {{#link-to 'index'}}screenwritr{{/link-to}}
-
-      </div>
-
-    </div>
-    <div class='col-xs-12 col-sm-6 text-right header-name'>
-      <div class='hidden-xs header-name-margin'>
-
-        {{#if session.isAuthenticated}}
-
-          {{#link-to 'user' session.uid}}
-            {{session.user.firstName}}
-          {{/link-to}}
-
-        {{/if}}
-
-      </div>
-    </div>
-
-    <div class="col-xs-12">
-
-      {{outlet}}
-
-    </div>
-  </div>
-</div> --}}
 
 <div class='header'>
   <div class='headline'>{{#link-to 'index'}}screenwritr{{/link-to}}</div>

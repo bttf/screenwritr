@@ -36,8 +36,8 @@ export default Ember.Controller.extend({
   actions: {
     simpleLogin: function() {
       var email = $('#email').val(),
-      password = $('#password').val(),
-      controller = this;
+          password = $('#password').val(),
+          controller = this;
 
       if (Ember.isEmpty(email) || Ember.isEmpty(password)) {
         var errorMsg = [];

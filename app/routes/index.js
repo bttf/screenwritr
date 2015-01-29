@@ -10,7 +10,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   afterModel: function(model) {
     if (this.get('session.isAuthenticated')) {
-      this.get('store').find('user', this.get('session.uid')).then(function(user) {
+      this.get('store').find('user', this.get('session.authData.uid')).then(function(user) {
         Ember.set(model, 'user', user);
         Ember.set(model, 'entries', user.get('entries'));
       });
