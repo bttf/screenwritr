@@ -5,6 +5,7 @@ var attr = DS.attr,
   hasMany = DS.hasMany;
 
 export default DS.Model.extend({
+  uid: attr('string'),
   firstName: attr('string'),
   lastName: attr('string'),
   email: attr('string'),
