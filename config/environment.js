@@ -14,7 +14,7 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // firebaseInstance name such as 'flaming-heat-xxxx'
+      // firebase instance name (not URL)
       firebaseInstance: ''
     }
   };
