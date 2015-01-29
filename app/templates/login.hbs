@@ -64,22 +64,26 @@
 
       <div class='login-box'>
         <div class='login-headline'>Sign Up or Log In Today</div>
-        <input type='text' placeholder='E-mail'>
-        <input type='password' placeholder='Password'>
-        <a href='' class='btn btn-social btn-reddit' {{action 'simpleLogin'}}>
-          <i class='fa fa-sign-in'></i>
-          Sign Up / Log In
-        </a>
-        <br>
+        <form>
+          <input type='text' id='email' placeholder='E-mail'>
+          <input type='password' id='password' placeholder='Password'>
+          <button type='submit' class='btn btn-social btn-reddit' {{action 'simpleLogin'}}>
+            <i class='fa fa-sign-in'></i>
+            Sign Up / Log In
+          </button>
+        </form>
+        <div class='login-error text-danger'>
+          {{loginError}}
+        </div>
         <hr>
-        <a href='' class='btn btn-social btn-facebook' {{action 'fbLogin'}}>
+        <button href='' class='btn btn-social btn-facebook' {{action 'fbLogin'}}>
           <i class='fa fa-facebook'></i>
           Sign in with Facebook
-        </a>
-        <a href='' class='btn btn-social btn-twitter' {{action 'twLogin'}}>
+        </button>
+        <button href='' class='btn btn-social btn-twitter' {{action 'twLogin'}}>
           <i class='fa fa-twitter'></i>
           Sign in with Twitter
-        </a>
+        </button>
       </div>
 
 

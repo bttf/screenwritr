@@ -109,7 +109,7 @@ html, body {
     font-family: 'Poiret One', sans-serif;
     margin-bottom: 0.5em;
   }
-  a, input, hr {
+  input, button, hr {
     width: 58%;
   }
   hr {
@@ -119,9 +119,12 @@ html, body {
     padding: 0.5em;
     margin: 0.5em 0;
   }
-  a {
+  button {
     margin: 0.25em 0;
     text-align: center;
+  }
+  .login-error {
+    margin: 0.5em 0;
   }
 }
 
