@@ -18,6 +18,7 @@
     "quill": "~0.19.7",
     "font-awesome": "~4.2.0",
     "ember-simple-auth": "0.7.2",
-    "momentjs": "~2.8.4"
+    "momentjs": "~2.8.4",
+    "bootstrap-social": "~4.8.0"
   }
 }
