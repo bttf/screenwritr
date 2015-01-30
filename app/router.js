@@ -6,17 +6,13 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route("users");
-
-  this.route("createUser", {
-    path: "/createUser/:email"
-  });
-
-  this.route("user", {
-    path: "/user/:user_id"
-  });
-
   this.route("login");
+
+  this.resource("script", function() {
+    this.route("new");
+    this.route("index", { path: "/script/:slug_id" });
+    this.route("edit", { path: "/script/:slug_id/edit" });
+  });
 });
 
 export default Router;
