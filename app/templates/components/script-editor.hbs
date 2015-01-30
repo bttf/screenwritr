@@ -7,15 +7,8 @@
   </li>
 </ul>
 
-{{#if editMode}}
-  <div class='tab-content editor'>
-    <h1>test is good</h1>
-    <h2>hola</h2>
-    <h4>what's up</h4>
-  </div>
-{{else}}
-  <div class='tab-content'>
-    <h1>preview!</h1>
-  </div>
-{{/if}}
-
+<div {{bind-attr class=':tab-content :editor editMode:show:hidden'}}>
+</div>
+<div {{bind-attr class=':tab-content :editor editMode:hidden:show'}}>
+  {{script.body}}
+</div>
