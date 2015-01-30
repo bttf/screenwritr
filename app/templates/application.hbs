@@ -7,7 +7,8 @@
         <div class='headline'>{{#link-to 'index'}}screenwritr{{/link-to}}</div>
       </div>
       <div class='col-xs-12'>
-        {{menu-bar}}
+        {{menu-bar logout='logout'}}
+        {{log session.authenticator}}
       </div>
     </div>
 
@@ -19,5 +20,5 @@
 
 </div>
 
-{{!-- outlet --}}
+{{outlet}}
 
