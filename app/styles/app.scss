@@ -379,3 +379,18 @@ a, a:hover {
 .panel-buttons-left {
   margin-left: 1.5em;
 }
+
+.menu-bar {
+  margin: 0 0.5em;
+  ul {
+    margin-left: 0;
+    li {
+      margin: 0;
+      padding: 0;
+      a {
+        color: $bodyFontColor;
+        padding: 0.25em 0.5em;
+      }
+    }
+  }
+}
