@@ -151,6 +151,68 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
   background-color: $editorBgColor;
 }
 
+.menu-bar {
+  margin: 0 0.5em;
+  ul {
+    margin-left: 0;
+    li {
+      margin: 0;
+      padding: 0;
+      a {
+        color: $bodyFontColor;
+        padding: 0.25em 0.5em;
+      }
+    }
+  }
+}
+
+.script-editor {
+  margin: 2em auto;
+  width: 75%;
+  .nav-tabs {
+    margin-bottom: 0;
+  }
+
+  .tab-content {
+    padding: 5px;
+    border-left: 1px #DDD solid;
+    border-right: 1px #DDD solid;
+    border-bottom: 1px #DDD solid;
+  }
+}
+
+.script-stage {
+  position: relative;
+}
+.help-panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20%;
+  overflow-x: auto;
+  overflow-y: scroll;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 0.66em;
+  padding: 2em 2em;
+  border-left: 1px #ccc solid;
+  li {
+    margin: 1em 0;
+  }
+  h1, h3 {
+    font-size: 2em;
+    margin: 0;
+  }
+  hr {
+    margin: 0.25em 0;
+  }
+  ul {
+    padding: 0;
+  }
+}
+
+
+
+
 
 
 
@@ -393,31 +455,3 @@ a, a:hover {
   margin-left: 1.5em;
 }
 
-.menu-bar {
-  margin: 0 0.5em;
-  ul {
-    margin-left: 0;
-    li {
-      margin: 0;
-      padding: 0;
-      a {
-        color: $bodyFontColor;
-        padding: 0.25em 0.5em;
-      }
-    }
-  }
-}
-
-.script-editor {
-  margin: 2em 0;
-  .nav-tabs {
-    margin-bottom: 0;
-  }
-
-  .tab-content {
-    padding: 5px;
-    border-left: 1px #DDD solid;
-    border-right: 1px #DDD solid;
-    border-bottom: 1px #DDD solid;
-  }
-}
