@@ -93,6 +93,10 @@ html, body {
 .lists li {
   margin: 0.5em 0;
   line-height: 1.8em;
+
+  i {
+    line-height: 1.5em;
+  }
 }
 
 .list-title {
@@ -136,6 +140,15 @@ html, body {
     font-family: 'Poiret One', sans-serif;
     font-size: 2em;
   }
+}
+
+$editorBgColor: rgba(255, 255, 255, 0.6);
+
+.tab-content {
+  background-color: $editorBgColor;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: $editorBgColor;
 }
 
 
