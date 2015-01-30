@@ -1,3 +1,20 @@
+<ul class='nav nav-tabs'>
+  <li class='active'>
+    <a href='#'>Edit</a>
+  </li>
+  <li>
+    <a href='#'>Preview</a>
+  </li>
+</ul>
+
+<div class='tab-content'>
+  <h1>test is good</h1>
+  <h2>hola</h2>
+  <h4>what's up</h4>
+</div>
+
+
+{{!--
 <div id='editor'>
 
   {{entry.body}}
@@ -12,19 +29,19 @@
 
       {{#if session.isAuthenticated}}
 
-        <button class='btn btn-default save-button' {{action 'manualSave'}}>Save</button>
+      <button class='btn btn-default save-button' {{action 'manualSave'}}>Save</button>
 
-        {{#if lastSave}}
-          {{lastSave}}
+      {{#if lastSave}}
+      {{lastSave}}
+      {{/if}}
+
+      <div class='saved-notice text-danger'>
+
+        {{#if saveError}}
+        {{saveError}}
         {{/if}}
 
-        <div class='saved-notice text-danger'>
-
-          {{#if saveError}}
-            {{saveError}}
-          {{/if}}
-
-        </div>
+      </div>
 
       {{/if}}
 
@@ -37,3 +54,4 @@
     </div>
   </div>
 </div>
+--}}
