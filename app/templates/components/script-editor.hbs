@@ -1,57 +1,21 @@
 <ul class='nav nav-tabs'>
-  <li class='active'>
-    <a href='#'>Edit</a>
+  <li {{bind-attr class='editMode:active'}}>
+    <a href='' {{action 'toggleEditMode'}}>Edit</a>
   </li>
-  <li>
-    <a href='#'>Preview</a>
+  <li {{bind-attr class='editMode::active'}}>
+    <a href='' {{action 'toggleEditMode'}}>Preview</a>
   </li>
 </ul>
 
-<div class='tab-content editor'>
-  <h1>test is good</h1>
-  <h2>hola</h2>
-  <h4>what's up</h4>
-</div>
-
-
-{{!--
-<div id='editor'>
-
-  {{entry.body}}
-
-</div>
-<div class='row'>
-  <div class='col-xs-12'>
-
-    {{input type='text' value=entry.title class='title-input' placeholder='Title'}}
-
-    <div class="saved-notice text-success">
-
-      {{#if session.isAuthenticated}}
-
-      <button class='btn btn-default save-button' {{action 'manualSave'}}>Save</button>
-
-      {{#if lastSave}}
-      {{lastSave}}
-      {{/if}}
-
-      <div class='saved-notice text-danger'>
-
-        {{#if saveError}}
-        {{saveError}}
-        {{/if}}
-
-      </div>
-
-      {{/if}}
-
-    </div>
-
-    <div class='pull-right'>
-
-      {{partial 'toolbar'}}
-
-    </div>
+{{#if editMode}}
+  <div class='tab-content editor'>
+    <h1>test is good</h1>
+    <h2>hola</h2>
+    <h4>what's up</h4>
   </div>
-</div>
---}}
+{{else}}
+  <div class='tab-content'>
+    <h1>preview!</h1>
+  </div>
+{{/if}}
+

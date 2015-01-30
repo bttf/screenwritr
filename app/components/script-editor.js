@@ -1,7 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['script-editor']
+  classNames: ['script-editor'],
+  editMode: true,
+  actions: {
+    toggleEditMode: function() {
+      this.set('editMode', !this.get('editMode'));
+    }
+  }
 
   // keyUp: function() {
   //   if (this.get('isAuthenticated')) {
