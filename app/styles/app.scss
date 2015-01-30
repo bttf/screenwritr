@@ -17,6 +17,10 @@ html, body {
   background-color: $bodyBgColor;
 }
 
+.row {
+  margin: 0;
+}
+
 .header {
   border-bottom: 1px #CCC solid;
   background-color: $headerBgColor;
@@ -185,14 +189,15 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
   position: relative;
 }
 .help-panel {
+  z-index: 1;
   position: absolute;
   right: 0;
   top: 0;
-  width: 20%;
-  overflow-x: auto;
-  overflow-y: scroll;
+  width: 25%;
+  overflow-x: hidden;
+  overflow-y: visible;
   background-color: rgba(255, 255, 255, 0.3);
-  font-size: 0.66em;
+  font-size: 0.8em;
   padding: 2em 2em;
   border-left: 1px #ccc solid;
   li {

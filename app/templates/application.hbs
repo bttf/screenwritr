@@ -7,9 +7,13 @@
         <div class='headline'>{{#link-to 'index'}}screenwritr{{/link-to}}</div>
       </div>
       <div class='col-xs-12'>
-        {{menu-bar logout='logout'}}
+        {{menu-bar logout='logout' help='toggleHelpPanel'}}
       </div>
     </div>
+
+    {{#if helpPanel}}
+      {{help-panel toggleHelpPanel='toggleHelpPanel'}}
+    {{/if}}
 
   {{else}}
 

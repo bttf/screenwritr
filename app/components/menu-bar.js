@@ -10,6 +10,9 @@ export default Ember.Component.extend({
   actions: {
     logout: function() {
       this.sendAction('logout');
+    },
+    toggleHelpPanel: function() {
+      this.sendAction('help');
     }
   }
 
