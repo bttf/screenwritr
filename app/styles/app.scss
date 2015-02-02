@@ -190,7 +190,7 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
 }
 .help-panel {
   z-index: 1;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   width: 25%;

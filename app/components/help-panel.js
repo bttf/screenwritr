@@ -1,9 +1,25 @@
 import Ember from 'ember';
 
+var $ = Ember.$,
+    helpPanelClassName = 'help-panel';
+
 export default Ember.Component.extend({
-  classNames: ['help-panel'],
-  autoSize: function() {
-    Ember.$('.help-panel').css('height', window.innerHeight);
+  classNames: [helpPanelClassName],
+
+  initStuff: function() {
+    var helpPanel = $('.' + helpPanelClassName);
+
+    helpPanel.css('height', window.innerHeight);
+
+    helpPanel.resize(function() {
+      helpPanel.css('height', window.innerHeight);
+    });
+
+    if (this.get('hideHelpPanel')) {
+      var width = helpPanel.width() + 200;
+      helpPanel.css('right', '-' + width + 'px');
+      helpPanel.hide();
+    } 
   }.on('didInsertElement'),
 
   actions: {
