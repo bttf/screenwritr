@@ -8,7 +8,8 @@
 </ul>
 
 <div {{bind-attr class=':tab-content :editor editMode:show:hidden'}}>
+  {{textarea value=script.body}}
 </div>
-<div {{bind-attr class=':tab-content :editor editMode:hidden:show'}}>
-  {{script.body}}
+<div {{bind-attr class=':tab-content :preview editMode:hidden:show'}}>
+  {{fountain-to-html script.body}}
 </div>

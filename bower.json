@@ -19,6 +19,7 @@
     "font-awesome": "~4.2.0",
     "ember-simple-auth": "0.7.2",
     "momentjs": "~2.8.4",
-    "bootstrap-social": "~4.8.0"
+    "bootstrap-social": "~4.8.0",
+    "Fountain.js": "https://github.com/bttf/Fountain.js.git#~1.0.0"
   }
 }

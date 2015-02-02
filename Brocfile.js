@@ -17,6 +17,7 @@ app.import('bower_components/bootstrap-social/bootstrap-social.css');
 app.import('bower_components/quill/dist/quill.min.js');
 app.import('bower_components/momentjs/moment.js');
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+app.import('bower_components/Fountain.js/fountain.js');
 
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That

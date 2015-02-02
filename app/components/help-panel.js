@@ -11,7 +11,7 @@ export default Ember.Component.extend({
 
     helpPanel.css('height', window.innerHeight);
 
-    helpPanel.resize(function() {
+    $(window).resize(function() {
       helpPanel.css('height', window.innerHeight);
     });
 

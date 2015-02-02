@@ -148,9 +148,6 @@ html, body {
 
 $editorBgColor: rgba(255, 255, 255, 0.6);
 
-.tab-content {
-  background-color: $editorBgColor;
-}
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   background-color: $editorBgColor;
 }
@@ -170,24 +167,91 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
   }
 }
 
+.page {
+  width: 8.5in;
+  height: 11in;
+  background-color: #FFF;
+  border: 1px #DDD solid;
+  border-radius: 0;
+  box-shadow: 0 0 10px #CCC;
+  margin: 0 auto;
+}
+
 .script-editor {
   margin: 2em auto;
-  width: 75%;
+  /*width: 75%;*/
   .nav-tabs {
     margin-bottom: 0;
   }
 
   .tab-content {
-    padding: 5px;
-    border-left: 1px #DDD solid;
-    border-right: 1px #DDD solid;
-    border-bottom: 1px #DDD solid;
+    outline: 0;
+    // padding: 5px;
+    // background-color: $editorBgColor;
+    // border-left: 1px #DDD solid;
+    // border-right: 1px #DDD solid;
+    // border-bottom: 1px #DDD solid;
+  }
+
+  textarea {
+    height: 100%;
+    width: 100%;
+    border: 1px #DDD solid;
+    border-top: 0;
+    background-color: $editorBgColor;
+    padding: 1em;
+  }
+
+  .preview {
+    padding: 1em;
+    font-family: courier;
+    font-size: 0.75em;
+
+    .title-page {
+      padding: 1in 1in 1in 1.5in;
+      position: relative;
+      @extend .page;
+      h1 {
+        margin-top: 50%;
+        margin-bottom: 0;
+        font-size: inherit;
+        text-align: center;
+      }
+
+      .credit, .authors {
+        margin: 2em 0 0 0;
+        text-align: center;
+      }
+
+      .notes {
+        margin-top: 45%;
+      }
+    }
+
+    // action lines
+    p {
+      font-size: inherit;
+    }
+
+    // scene headings
+    h3 {
+      font-size: inherit;
+      text-transform: uppercase;
+    }
+
+    .dialogue {
+      h4 {
+        font-size: inherit;
+        text-align: center;
+      }
+    }
   }
 }
 
 .script-stage {
   position: relative;
 }
+
 .help-panel {
   z-index: 1;
   position: fixed;
