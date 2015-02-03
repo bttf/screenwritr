@@ -4,7 +4,35 @@ var $ = Ember.$;
 
 export default Ember.Controller.extend({
   hideHelpPanel: true,
+  hideSaveFile: true,
+  saveFileRoute: '',
+  saved: '',
+  error: '',
   actions: {
+    transition: function(route) {
+      console.log('debug: transitioning to ' + route);
+      this.transitionToRoute(route);
+    },
+
+    toggleSaveFile: function(script, route) {
+      this.set('hideSaveFile', !this.get('hideSaveFile'));
+      var savePrompt = $('.save-prompt');
+      if (!this.get('hideSaveFile')) {
+        var left = (window.innerWidth - savePrompt.width()) / 2;
+        savePrompt.show();
+        savePrompt.animate({ 'left': left + 'px' }, 250);
+        
+        if (!Ember.isEmpty(route)) {
+          this.set('saveFileRoute', route);
+        }
+      } else {
+        this.set('saveFileRoute', '');
+        savePrompt.animate({ 'left': '-500px' }, 250, function() {
+          savePrompt.hide();
+        });
+      }
+    },
+
     logout: function() {
       var controller = this;
       var authenticator = this.get('session.authenticator');

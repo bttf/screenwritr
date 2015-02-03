@@ -8,6 +8,10 @@ export default Ember.Component.extend({
   }.on('didInsertElement'),
 
   actions: {
+    newScript: function() {
+      this.sendAction('saveAndTransition', this.get('script'), 'script.new');
+    },
+
     logout: function() {
       this.sendAction('logout');
     },

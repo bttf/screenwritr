@@ -1,6 +1,6 @@
 <ul class='list-inline'>
   <li>
-    <a href='#' class='btn btn-link' data-toggle='tooltip' data-placement='bottom' title='New'>
+    <a href='#' class='btn btn-link' data-toggle='tooltip' data-placement='bottom' title='New' {{action 'newScript'}}>
       <i class='fa fa-file-o'></i>
     </a>
   </li>
@@ -53,5 +53,8 @@
     <a href='#' class='btn btn-link' data-toggle='tooltip' data-placement='bottom' title='Logout' {{action 'logout'}}>
       <i class='fa fa-sign-out'></i>
     </a>
+  </li>
+  <li {{bind-attr class='saved:text-success error:text-danger'}}>
+    {{saved}}{{error}}
   </li>
 </ul>
