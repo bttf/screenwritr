@@ -64,7 +64,7 @@ export default Ember.Controller.extend({
       }).then(function() {
         console.log('authentication successful');
         addUserIfDoesNotExist(controller, controller.get('session.authData.uid')).then(function() {
-          controller.transitionTo('index');
+          controller.transitionToRoute('index');
         }, function(err) {
           controller.set('loginError', err);
         });
@@ -102,7 +102,7 @@ export default Ember.Controller.extend({
       var controller = this;
       this.get('session').authenticate('authenticator:facebook').then(function() {
         addUserIfDoesNotExist(controller, controller.get('session.authData.uid')).then(function() {
-          controller.transitionTo('index');
+          controller.transitionToRoute('index');
         }, function(err) {
           controller.set('loginError', err);
         });
@@ -115,7 +115,7 @@ export default Ember.Controller.extend({
       var controller = this;
       this.get('session').authenticate('authenticator:twitter').then(function() {
         addUserIfDoesNotExist(controller, controller.get('session.authData.uid')).then(function() {
-          controller.transitionTo('index');
+          controller.transitionToRoute('index');
         }, function(err) {
           controller.set('loginError', err);
         });
