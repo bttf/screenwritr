@@ -15,7 +15,7 @@ module.exports = function(environment) {
 
     APP: {
       // firebase instance name (not URL)
-      firebaseInstance: ''
+      firebaseInstance: 'bergman'
     }
   };
 
