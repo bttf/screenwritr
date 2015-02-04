@@ -16,4 +16,5 @@ install:
 script:
 - npm test
 after_success:
-  "scp -o StrictHostKeyChecking=no -i .travis/id_rsa -r ./dist/* bttf@chewbonga.com:/home/bttf/screenwritr/dist"
+- ember build
+- scp -o StrictHostKeyChecking=no -i .travis/id_rsa -r ./dist/* bttf@chewbonga.com:/home/bttf/screenwritr/dist
