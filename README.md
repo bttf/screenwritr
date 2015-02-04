@@ -1,4 +1,4 @@
-# Screenwritr ![Build Status](https://travis-ci.org/bttf/screenwritr.svg?branch=master)
+# Screenwritr [![Build Status](https://travis-ci.org/bttf/screenwritr.svg?branch=master)](https://travis-ci.org/bttf/screenwritr)
 
 Just your standard Ember web-app, helping you to write and share your own [scripts](http://en.wikipedia.org/wiki/Screenwriting).
 
