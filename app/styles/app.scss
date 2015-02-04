@@ -26,7 +26,7 @@ html, body {
   background-color: $headerBgColor;
   .headline {
     display: inline;
-    margin: 0 0.25em;
+    margin: 0 0 0 0.25em;
     font-family: 'Poiret One', sans-serif;
     a, a:hover, a:focus {
       color: $headlineColor;
@@ -144,6 +144,12 @@ html, body {
     font-family: 'Poiret One', sans-serif;
     font-size: 2em;
   }
+}
+
+.subtitle {
+  display: inline;
+  font-size: 0.8em;
+  color: #AAA;
 }
 
 $editorBgColor: rgba(255, 255, 255, 0.6);
