@@ -15,7 +15,7 @@ export default Base.extend({
     });
   },
 
-  authenticate: function(options) {
+  authenticate: function(/* options */) {
     var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com');
     return new Ember.RSVP.Promise(function(resolve, reject) {
       ref.authWithOAuthPopup("facebook", function(error, authData) {

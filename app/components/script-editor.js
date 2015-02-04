@@ -16,7 +16,7 @@ export default Ember.Component.extend({
 
     // capture tabs to indent
     $('#scriptInput').keydown(function(e) {
-      if (e.keyCode == 9) {
+      if (e.keyCode === 9) {
         e.preventDefault();
         var s = this.selectionStart;
         this.value = this.value.substring(0, s) + '\t' + this.value.substring(this.selectionEnd);

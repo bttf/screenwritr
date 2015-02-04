@@ -5,9 +5,9 @@ export default Ember.ObjectController.extend({
   fieldsValid: function() {
     var firstName = this.get('firstName'), lastName = this.get('lastName'),
       email = this.get('email'), bio = this.get('bio');
-    if (!Ember.isEmpty(firstName) && !Ember.isEmpty(lastName) &&
-        !Ember.isEmpty(email) && !Ember.isEmpty(bio)) 
+    if (!Ember.isEmpty(firstName) && !Ember.isEmpty(lastName) && !Ember.isEmpty(email) && !Ember.isEmpty(bio)) {
       return true;
+    }
     return false;
   }.property('firstName', 'lastName', 'email', 'bio'),
 

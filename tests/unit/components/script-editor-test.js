@@ -6,6 +6,7 @@ import {
 moduleForComponent('script-editor', 'ScriptEditorComponent', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
+  needs: ['helper:fountain-to-html']
 });
 
 test('it renders', function() {

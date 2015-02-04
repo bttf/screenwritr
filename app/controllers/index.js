@@ -64,7 +64,9 @@ export default Ember.ObjectController.extend({
 
       if (!Ember.isEmpty(email) && !Ember.isEmpty(pass)) {
         // toggle off error state if exists
-        if (this.get('loginError')) this.set('loginError', false);
+        if (this.get('loginError')) {
+          this.set('loginError', false);
+        }
 
         // if user exists, authenticate, otherwise create user 
         var _this = this;

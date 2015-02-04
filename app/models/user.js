@@ -16,14 +16,16 @@ export default DS.Model.extend({
 
   fullName: function() {
     var fName, lName;
-    if (Ember.isEmpty(this.get('firstName')))
+    if (Ember.isEmpty(this.get('firstName'))) {
       fName = '';
-    else
+    } else {
       fName = this.get('firstName');
-    if (Ember.isEmpty(this.get('lastName')))
+    }
+    if (Ember.isEmpty(this.get('lastName'))) {
       lName = '';
-    else 
+    } else {
       lName = this.get('lastName');
+    }
     return fName + ' ' + lName;
   }.property('firstName', 'lastName')
 });

@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
-var $ = Ember.$,
-  saveFileClassName = 'save-file';
+var saveFileClassName = 'save-file';
 
 export default Ember.Component.extend({
   classNames: [saveFileClassName],

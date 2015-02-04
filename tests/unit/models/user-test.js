@@ -5,7 +5,7 @@ import {
 
 moduleForModel('user', 'User', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:entry']
 });
 
 test('it exists', function() {

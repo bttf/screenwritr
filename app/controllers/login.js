@@ -19,7 +19,7 @@ function addUserIfDoesNotExist(_this, uid) {
         user.set('id', uid);
         user.save().then(function(user) {
           console.log('user created');
-          resolve(user)
+          resolve(user);
         }, function(err) {
           console.log('err creating user');
           reject(err);
