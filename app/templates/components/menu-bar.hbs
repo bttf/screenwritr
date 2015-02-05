@@ -5,12 +5,12 @@
     </a>
   </li>
   <li>
-    <a href='#' class='btn btn-link' data-toggle='tooltip' data-placement='bottom' title='Open'>
+    <a href='#' class='btn btn-link' data-toggle='tooltip' data-placement='bottom' title='Open' {{action 'openScript'}}>
       <i class='fa fa-folder-open'></i>
     </a>
   </li>
   <li>
-    <a href='#' class='btn btn-link' data-toggle='tooltip' data-placement='bottom' title='Save'>
+    <a href='#' class='btn btn-link' data-toggle='tooltip' data-placement='bottom' title='Save' {{action 'saveScript'}}>
       <i class='fa fa-save'></i>
     </a>
   </li>
@@ -58,3 +58,5 @@
     {{saved}}{{error}}
   </li>
 </ul>
+
+{{init-tooltips}}

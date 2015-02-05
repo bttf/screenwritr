@@ -12,6 +12,18 @@ export default Ember.Component.extend({
       }
     },
 
+    openScript: function() {
+      if (this.get('script.isDirty')) {
+        this.sendAction('toggleSavePromptThenTransition', 'open');
+      } else {
+        this.sendAction('transition', 'open');
+      }
+    },
+
+    saveScript: function() {
+      this.sendAction('saveScript');
+    },
+
     logout: function() {
       this.sendAction('logout');
     },

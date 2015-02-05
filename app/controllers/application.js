@@ -17,7 +17,8 @@ export default Ember.Controller.extend({
     saveScriptThenTransition: function(route) {
       if (this.get('script')) {
         var _this = this;
-        this.get('script').save().then(function() {
+        this.get('script').save().then(function(script) {
+          addScriptToUser(script);
           var prettyDate = window.moment(new Date()).format('HH:mm, MM/DD/YYYY');
           _this.set('saved', 'Saved successfully @ ' + prettyDate);
           if (!Ember.isEmpty(route)) {
@@ -83,3 +84,11 @@ export default Ember.Controller.extend({
     }
   }
 });
+
+function addScriptToUser(script) {
+  var user = script.get('uid');
+  user.get('scripts').then(function(scripts) {
+    scripts.addObject(script);
+    user.save();
+  });
+}

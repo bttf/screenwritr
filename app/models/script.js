@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 
-var attr = DS.attr;
+var attr = DS.attr,
+    belongsTo = DS.belongsTo;
 
 export default DS.Model.extend({
   title: attr('string', { 
@@ -9,5 +10,6 @@ export default DS.Model.extend({
       return 'Untitled @ ' + date;
     })()
   }),
-  body: attr('string')
+  body: attr('string'),
+  uid: belongsTo('user')
 });

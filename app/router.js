@@ -13,6 +13,7 @@ Router.map(function() {
     this.route("index", { path: "/script/:slug_id" });
     this.route("edit", { path: "/script/:slug_id/edit" });
   });
+  this.route("open");
 });
 
 export default Router;

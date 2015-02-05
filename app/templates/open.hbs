@@ -1,0 +1,13 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-xs-12'>
+      <ul>
+        {{#each script in model}}
+          <li>{{script.title}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{{outlet}}

@@ -3,12 +3,12 @@ import Base from 'simple-auth/authenticators/base';
 import ENV from 'screenwritr/config/environment';
 
 export default Base.extend({
-  restore: function(data) {
+  restore: function(/* data */) {
     return new Ember.RSVP.Promise(function(resolve, reject) {
       var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com');
       var authData = ref.getAuth();
       if (authData) {
-        resolve({ uid: data.uid, user: data.user, authData: authData });
+        resolve({ authData: authData });
       } else { 
         reject();
       }
