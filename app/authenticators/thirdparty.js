@@ -15,15 +15,18 @@ export default Base.extend({
     });
   },
 
-  authenticate: function(/* options */) {
+  authenticate: function(options) {
+    if (!options.provider) {
+      return;
+    }
     var ref = new window.Firebase('https://' + ENV.APP.firebaseInstance + '.firebaseio.com');
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      ref.authWithOAuthPopup("facebook", function(error, authData) {
+      ref.authWithOAuthPopup(options.provider, function(error, authData) {
         if (error) {
           console.log("Login Failed!", error);
           reject(error);
         } else {
-          console.log("Authenticated successfully with payload:", authData);
+          console.log("Authenticated successfully");
           resolve({ authData: authData });
         }
       });

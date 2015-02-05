@@ -3,35 +3,6 @@ import ENV from 'screenwritr/config/environment';
 
 var $ = Ember.$;
 
-function addUserIfDoesNotExist(_this, uid) {
-  return new Ember.RSVP.Promise(function(resolve, reject) {
-    _this.get('store').find('user', uid).then(function(user) {
-      if (user) {
-        console.log('user exists');
-        resolve(user);
-      }
-    }, function(err) {
-      if (err.message.indexOf('no record was found') !== -1) {
-        console.log('user not found, adding user');
-        var user = _this.store.createRecord('user', {
-          uid: uid
-        });
-        user.set('id', uid);
-        user.save().then(function(user) {
-          console.log('user created');
-          resolve(user);
-        }, function(err) {
-          console.log('err creating user');
-          reject(err);
-        });
-      } else {
-        console.log('error', err);
-        reject(err);
-      }
-    });
-  });
-}
-
 export default Ember.Controller.extend({
   actions: {
     simpleLogin: function() {
@@ -100,7 +71,7 @@ export default Ember.Controller.extend({
 
     fbLogin: function() {
       var controller = this;
-      this.get('session').authenticate('authenticator:facebook').then(function() {
+      this.get('session').authenticate('authenticator:thirdparty', { provider: 'facebook' }).then(function() {
         addUserIfDoesNotExist(controller, controller.get('session.authData.uid')).then(function() {
           controller.transitionToRoute('index');
         }, function(err) {
@@ -113,7 +84,7 @@ export default Ember.Controller.extend({
 
     twLogin: function() {
       var controller = this;
-      this.get('session').authenticate('authenticator:twitter').then(function() {
+      this.get('session').authenticate('authenticator:thirdparty', { provider: 'twitter' }).then(function() {
         addUserIfDoesNotExist(controller, controller.get('session.authData.uid')).then(function() {
           controller.transitionToRoute('index');
         }, function(err) {
@@ -125,3 +96,32 @@ export default Ember.Controller.extend({
     }
   }
 });
+
+function addUserIfDoesNotExist(_this, uid) {
+  return new Ember.RSVP.Promise(function(resolve, reject) {
+    _this.get('store').find('user', uid).then(function(user) {
+      if (user) {
+        console.log('user exists');
+        resolve(user);
+      }
+    }, function(err) {
+      if (err.message.indexOf('no record was found') !== -1) {
+        console.log('user not found, adding user');
+        var user = _this.store.createRecord('user', {
+          uid: uid
+        });
+        user.set('id', uid);
+        user.save().then(function(user) {
+          console.log('user created');
+          resolve(user);
+        }, function(err) {
+          console.log('err creating user');
+          reject(err);
+        });
+      } else {
+        console.log('error', err);
+        reject(err);
+      }
+    });
+  });
+}
