@@ -3,13 +3,10 @@
   {{help-panel hideHelpPanel=hideHelpPanel toggleHelpPanel='toggleHelpPanel'}}
 
   {{save-file 
-      toggleSaveFile='toggleSaveFile' 
-      script=script 
-      hideSaveFile=hideSaveFile 
+      toggleSavePrompt='toggleSavePrompt'
       transition='transition'
-      transitionRoute=saveFileRoute 
-      saved=saved 
-      error=error
+      saveScriptThenTransition='saveScriptThenTransition'
+      transitionRoute=afterSaveTransitionToRoute
   }}
 
 {{/if}}
@@ -24,7 +21,15 @@
         <div class='subtitle'data-toggle='tooltip' data-placement='bottom' title='Not yet feature complete - Features added everyday'>ALPHA</div>
       </div>
       <div class='col-xs-12'>
-        {{menu-bar saveAndTransition='toggleSaveFile' script=script logout='logout' help='toggleHelpPanel' saved=saved error=error}}
+        {{menu-bar 
+            transition='transition' 
+            toggleSavePromptThenTransition='toggleSavePromptThenTransition' 
+            script=script 
+            logout='logout' 
+            help='toggleHelpPanel' 
+            saved=saved 
+            error=error
+        }}
       </div>
     </div>
 

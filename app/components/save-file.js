@@ -1,35 +1,21 @@
 import Ember from 'ember';
 
-var saveFileClassName = 'save-file';
-
 export default Ember.Component.extend({
-  classNames: [saveFileClassName],
-
-  initStuff: function() {
-  }.on('didInsertElement'),
+  classNames: ['save-prompt'],
 
   actions: {
-    saveThenTransition: function() {
-      var _this = this;
-      this.get('script').save().then(function() {
-        var prettyTime = window.moment(new Date()).format('HH:mm - MM/DD/YYYY');
-        _this.set('error', '');
-        _this.set('saved', 'Saved successfully @ ' + prettyTime + '.');
-        _this.sendAction('toggleSaveFile');
-        _this.sendAction('transition', _this.get('transitionRoute'));
-      }, function(err) {
-        _this.set('saved', '');
-        _this.set('error', err);
-      });
+    saveScriptThenTransition: function() {
+      this.sendAction('saveScriptThenTransition', this.get('transitionRoute'));
+      this.sendAction('toggleSavePrompt');
     },
 
     justTransition: function() {
-      this.sendAction('toggleSaveFile');
+      this.sendAction('toggleSavePrompt');
       this.sendAction('transition', this.get('transitionRoute'));
     },
     
     cancel: function() {
-      this.sendAction('toggleSaveFile');
+      this.sendAction('toggleSavePrompt');
     }
   }
 });
