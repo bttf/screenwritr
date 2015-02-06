@@ -6,6 +6,7 @@ import {
 moduleFor('controller:script/edit', 'ScriptEditController', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
+  needs: ['controller:application']
 });
 
 // Replace this with your real tests.
