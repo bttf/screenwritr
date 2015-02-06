@@ -8,5 +8,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         return !item.get('isNew');
       });
     });
+  },
+
+  setupController(controller, model) {
+    controller.set('model', model);
+    controller.send('clearScript');
   }
 });

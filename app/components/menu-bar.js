@@ -21,7 +21,9 @@ export default Ember.Component.extend({
     },
 
     saveScript: function() {
-      this.sendAction('saveScript');
+      if (!Ember.isEmpty(this.get('script'))) {
+        this.sendAction('saveScript');
+      }
     },
 
     logout: function() {
