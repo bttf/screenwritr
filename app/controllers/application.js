@@ -3,6 +3,7 @@ import Ember from 'ember';
 var $ = Ember.$;
 
 export default Ember.Controller.extend({
+  autoSaveEnabled: false,
   hideHelpPanel: true,
   hideSavePrompt: true,
   afterSaveTransitionToRoute: '',
@@ -10,6 +11,10 @@ export default Ember.Controller.extend({
   error: '',
 
   actions: {
+    toggleAutoSave: function() {
+      this.toggleProperty('autoSaveEnabled');
+    },
+
     saveScript: function() {
       this.send('saveScriptThenTransition', null);
     },
