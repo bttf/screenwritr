@@ -1,43 +1,41 @@
 <div class='container'>
   <div class='row'>
     <div class='col-xs-12'>
-
       <div class='open-dialog'>
         <div class='file-list'>
+
           {{#each script in controller}}
-          <a href='' {{action 'selectScript' script}}>
-            <div class='file-item'>
-              {{script.title}}
-            </div>
-          </a>
+
+            <a href='' {{action 'selectScript' script}}>
+              <div class='file-item'>
+                {{script.title}}
+              </div>
+            </a>
+
           {{/each}}
+
         </div>
         <div class='controls'>
           <div class='row'>
             <div class='col-xs-6 script-select'>
+
               {{#if selectedScript}}
+
                 {{selectedScript.title}}
+
               {{else}}
+
                 Please select a script
+
               {{/if}}
+
             </div>
             <div class='col-xs-6 text-right buttons'>
-              <button type='button' class='btn btn-default'>Open</button>
+              <button type='button' class='btn btn-default' {{action 'openScript'}}>Open</button>
             </div>
           </div>
         </div>
       </div>
-
-      {{!--
-      <ul>
-        {{#each script in model}}
-
-          <li>{{script.title}}</li>
-
-        {{/each}}
-      </ul>
-      --}}
-
     </div>
   </div>
 </div>

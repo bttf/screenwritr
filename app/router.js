@@ -10,8 +10,8 @@ Router.map(function() {
 
   this.resource("script", function() {
     this.route("new");
-    this.route("index", { path: "/script/:slug_id" });
-    this.route("edit", { path: "/script/:slug_id/edit" });
+    this.route("index", { path: "/:id" });
+    this.route("edit", { path: "/:id/edit" });
   });
   this.route("open");
 });

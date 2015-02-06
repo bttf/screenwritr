@@ -4,7 +4,10 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 export default Ember.Route.extend(ApplicationRouteMixin, {
   actions: {
     clearScript: function() {
-      this.set('controller.script', undefined);
+      if (this.get('controller.script.isNew')) {
+        this.get('controller.script').deleteRecord();
+      }
+      this.set('controller.script', '');
     },
 
     sessionAuthenticationSucceeded: function() {

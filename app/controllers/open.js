@@ -6,6 +6,12 @@ export default Ember.ArrayController.extend({
   actions: {
     selectScript: function(script) {
       this.set('selectedScript', script);
+    },
+
+    openScript: function() {
+      if (!Ember.isEmpty('selectedScript')) {
+        this.transitionToRoute('script.edit', this.get('selectedScript'));
+      }
     }
   }
 });

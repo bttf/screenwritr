@@ -13,5 +13,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   setupController(controller, model) {
     controller.set('model', model);
     controller.send('clearScript');
+    controller.set('selectedScript', '');
   }
 });
