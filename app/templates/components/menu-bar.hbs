@@ -15,9 +15,15 @@
     </a>
   </li>
   <li>
-    <a href='#' class='btn btn-link'>
-      Auto-Save <i class='fa fa-check'></i>
+    {{#if autoSaveEnabled}}
+      <a href='#' class='btn btn-link' data-toggle='tooltip' data-placement='bottom' title='AutoSave: On' {{action 'toggleAutoSave'}}>
+      Auto-Save <i {{bind-attr class=':fa autoSaveEnabled:fa-check:fa-close'}}></i>
     </a>
+    {{else}}
+      <a href='#' class='btn btn-link' data-toggle='tooltip' data-placement='bottom' title='AutoSave: Off' {{action 'toggleAutoSave'}}>
+      Auto-Save <i {{bind-attr class=':fa autoSaveEnabled:fa-check:fa-close'}}></i>
+    </a>
+    {{/if}}
   </li>
   <li>
     <a href='#' class='btn btn-link'>

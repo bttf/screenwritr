@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['menu-bar'],
 
+  autoSaveEnabled: false,
+
   actions: {
     newScript: function() {
       if (this.get('script.isDirty')) {
@@ -24,6 +26,10 @@ export default Ember.Component.extend({
       if (!Ember.isEmpty(this.get('script'))) {
         this.sendAction('saveScript');
       }
+    },
+
+    toggleAutoSave: function() {
+      this.toggleProperty('autoSaveEnabled');
     },
 
     logout: function() {
