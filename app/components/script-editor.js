@@ -23,6 +23,10 @@ export default Ember.Component.extend({
         this.selectionEnd = s + 1;
       }
     });
+
+    // font size
+    var fontSize = $('.font-size-select').val();
+    $('.editor textarea').css('font-size', fontSize);
   }.on('didInsertElement'),
 
   actions: {

@@ -211,18 +211,12 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
 
 .script-editor {
   margin: 2em auto;
-  /*width: 75%;*/
   .nav-tabs {
     margin-bottom: 0;
   }
 
   .tab-content {
     outline: 0;
-    // padding: 5px;
-    // background-color: $editorBgColor;
-    // border-left: 1px #DDD solid;
-    // border-right: 1px #DDD solid;
-    // border-bottom: 1px #DDD solid;
   }
 
   textarea {
