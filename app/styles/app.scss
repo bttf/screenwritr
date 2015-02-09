@@ -168,9 +168,18 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
     margin-right: 0;
   }
   .selectpicker {
+    outline: 0;
     padding: 0.2em 0.8em;
     border: 1px #ccc solid;
     margin-right: 0;
+
+    li {
+      padding: 0;
+      a {
+        padding: 0.25em 1.2em;
+        outline: 0;
+      }
+    }
   }
   ul {
     margin-left: 0;
@@ -549,11 +558,6 @@ a, a:hover {
     font-size: 1.5em;
     margin-left: 0.5em;
   }
-}
-
-.selected {
-  background-color: #efefff;
-  box-shadow: 0 0 8px #ccc;
 }
 
 .pending {
