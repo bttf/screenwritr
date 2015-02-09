@@ -7,6 +7,7 @@ export default Ember.Component.extend({
 
   initialize: function() {
     $('.selectpicker').selectpicker();
+    $('.font-size-select').change(handleFontSizeChange);
   }.on('didInsertElement'),
 
   actions: {
@@ -45,3 +46,7 @@ export default Ember.Component.extend({
     }
   }
 });
+
+function handleFontSizeChange(e) {
+  $('.editor textarea').css('font-size', e.target.value);
+}
