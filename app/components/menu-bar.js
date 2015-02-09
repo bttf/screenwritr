@@ -1,7 +1,13 @@
 import Ember from 'ember';
 
+var $ = Ember.$;
+
 export default Ember.Component.extend({
   classNames: ['menu-bar'],
+
+  initialize: function() {
+    $('.selectpicker').selectpicker();
+  }.on('didInsertElement'),
 
   actions: {
     newScript: function() {

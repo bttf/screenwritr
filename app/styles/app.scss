@@ -164,17 +164,29 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
 .menu-bar {
   margin: 0 0.5em;
   font-size: 0.9em;
+  .bootstrap-select {
+    margin-right: 0;
+  }
+  .selectpicker {
+    padding: 0.2em 0.8em;
+    border: 1px #ccc solid;
+    margin-right: 0;
+  }
   ul {
     margin-left: 0;
     li {
       margin: 0;
-      padding: 0;
+      padding: 0.25em 0.5em;
       a {
+        padding: 0;
         color: $bodyFontColor;
-        padding: 0.25em 0.5em;
         font-size: inherit;
+        vertical-align: middle;
       }
     }
+  }
+  .font-size {
+    vertical-align: middle;
   }
 }
 

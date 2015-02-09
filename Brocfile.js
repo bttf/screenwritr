@@ -13,6 +13,8 @@ app.import('bower_components/bootstrap/dist/css/bootstrap.css');
 app.import('bower_components/bootstrap/dist/css/bootstrap-theme.css');
 app.import('bower_components/font-awesome/css/font-awesome.css');
 app.import('bower_components/bootstrap-social/bootstrap-social.css');
+app.import('bower_components/bootstrap-select/dist/css/bootstrap-select.min.css');
+app.import('bower_components/bootstrap-select/dist/js/bootstrap-select.min.js');
 
 app.import('bower_components/quill/dist/quill.min.js');
 app.import('bower_components/momentjs/moment.js');
