@@ -360,6 +360,7 @@ $selectedFileBgColor: #F5F4F4;
 
 .user-prompt {
   @extend .save-prompt;
+  display: none;
   .btn-danger {
     padding: 0.25em;
   }
