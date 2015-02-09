@@ -1,3 +1,9 @@
+{{user-prompt
+    promptMsg=deleteScriptPromptMsg
+    confirm='deleteScript'
+    deny='toggleDeletePrompt'
+    toggle=showDeletePrompt
+}}
 <div class='container'>
   <div class='row'>
     <div class='col-xs-12'>
@@ -13,7 +19,7 @@
                 </div>
               </a>
               <div class='col-xs-2 text-right delete-script'>
-                <a href='' {{action 'deleteScript' script}}>
+                <a href='' {{action 'toggleDeletePrompt' script}}>
                   <i class='fa fa-trash-o'></i>
                 </a>
               </div>
