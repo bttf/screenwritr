@@ -4,6 +4,7 @@ var $ = Ember.$;
 
 export default Ember.Controller.extend({
   autoSaveEnabled: false,
+  autoSaveIntervalId: '',
   hideHelpPanel: true,
   hideSavePrompt: true,
   afterSaveTransitionToRoute: '',
@@ -13,6 +14,22 @@ export default Ember.Controller.extend({
   actions: {
     toggleAutoSave: function() {
       this.toggleProperty('autoSaveEnabled');
+
+      if (this.get('autoSaveEnabled')) {
+        if (!Ember.isEmpty(this.get('autoSaveIntervalId'))) {
+          window.clearTimeout(this.get('autoSaveIntervalId'));
+        }
+        var _this = this;
+        this.set('autoSaveIntervalId', window.setInterval(function() {
+          if (!Ember.isEmpty(_this.get('script'))) {
+            _this.send('saveScript');
+          }
+        }, 8000));
+        this.send('saveScript');
+      } else {
+        window.clearTimeout(this.get('autoSaveIntervalId'));
+        this.set('autoSaveIntervalId', '');
+      }
     },
 
     saveScript: function() {
@@ -91,9 +108,10 @@ export default Ember.Controller.extend({
 });
 
 function addScriptToUser(script) {
-  var user = script.get('uid');
-  user.get('scripts').then(function(scripts) {
-    scripts.addObject(script);
-    user.save();
+  script.get('uid').then(function(user) {
+    user.get('scripts').then(function(scripts) {
+      scripts.addObject(script);
+      user.save();
+    });
   });
 }

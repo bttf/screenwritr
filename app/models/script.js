@@ -11,5 +11,5 @@ export default DS.Model.extend({
     }
   }),
   body: attr('string'),
-  uid: belongsTo('user')
+  uid: belongsTo('user', { async: true })
 });
