@@ -325,18 +325,20 @@ $selectedFileBgColor: #F5F4F4;
       text-decoration: none;
       color: $bodyFontColor;
     }
-    a:hover {
-      div {
+    .file-item:hover {
         background-color: $fileHoverBgColor;
-      }
+        .delete-script a {
+          color: $bodyFontColor;
+        }
     }
-    a:focus {
-      div {
+    .file-item:focus {
         background-color: $selectedFileBgColor;
-      }
     }
     .file-item{
       padding: 0.5em 0.75em;
+    }
+    .delete-script a {
+      color: #EEE;
     }
   }
 

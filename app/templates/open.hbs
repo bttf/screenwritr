@@ -6,11 +6,19 @@
 
           {{#each script in controller}}
 
-            <a href='' {{action 'selectScript' script}}>
-              <div class='file-item'>
-                {{script.title}}
+            <div class='row file-item'>
+              <a href='' {{action 'selectScript' script}}>
+                <div class='col-xs-10'>
+                    {{script.title}}
+                </div>
+              </a>
+              <div class='col-xs-2 text-right delete-script'>
+                <a href='' {{action 'deleteScript' script}}>
+                  <i class='fa fa-trash-o'></i>
+                </a>
               </div>
-            </a>
+            </div>
+
 
           {{/each}}
 
