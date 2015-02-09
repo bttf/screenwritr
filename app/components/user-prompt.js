@@ -7,12 +7,13 @@ export default Ember.Component.extend({
 
   toggleAnimation: function() {
     var userPrompt = $('.user-prompt');
+    var speed = 100;
     if (this.get('toggle')) {
       var left = (window.innerWidth - userPrompt.width()) / 2;
       userPrompt.show();
-      userPrompt.animate({ 'left': left + 'px' }, 250);
+      userPrompt.animate({ 'left': left + 'px' }, speed);
     } else {
-      userPrompt.animate({ 'left': '-500px' }, 250, function() {
+      userPrompt.animate({ 'left': '-500px' }, speed, function() {
         userPrompt.hide();
       });
     }
