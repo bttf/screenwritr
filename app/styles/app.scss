@@ -163,6 +163,7 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
 
 .menu-bar {
   margin: 0 0.5em;
+  font-size: 0.9em;
   ul {
     margin-left: 0;
     li {
@@ -171,6 +172,7 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
       a {
         color: $bodyFontColor;
         padding: 0.25em 0.5em;
+        font-size: inherit;
       }
     }
   }
