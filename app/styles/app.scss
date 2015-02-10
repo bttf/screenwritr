@@ -286,13 +286,16 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
   position: fixed;
   right: 0;
   top: 0;
-  width: 25%;
+  width: 33%;
   overflow-x: hidden;
   overflow-y: visible;
   background-color: rgba(255, 255, 255, 0.3);
   font-size: 0.8em;
   padding: 2em 2em;
   border-left: 1px #ccc solid;
+  a {
+    text-decoration: underline;
+  }
   li {
     margin: 1em 0;
   }
