@@ -53,20 +53,10 @@ function handleFontSizeChange(e) {
 }
 
 function handlePageWidthChange(e) {
-  if (e.target.value === 'fit-page') {
-    var width = $('.script-stage').width() - 32;
-    var ratio = width / parseInt($('.title-page').css('width'));
-    var height = parseInt($('.title-page').css('height')) * ratio;
-    var fontSize = parseInt($('.title-page').css('font-size')) * ratio;
-    $('.title-page').css('width', width + 'px');
-    $('.title-page').css('height', height + 'px');
-    $('.title-page').css('font-size', fontSize + 'px');
-  } else {
-    var width = 8.5 * e.target.value;
-    var height = 11 * e.target.value;
-    var fontSize = 12 * e.target.value;
-    $('.title-page').css('width', width + 'in');
-    $('.title-page').css('height', height + 'in');
-    $('.title-page').css('font-size', fontSize + 'px');
-  }
+  var width = 8.5 * e.target.value;
+  var height = 11 * e.target.value;
+  var fontSize = 12 * e.target.value;
+  $('.title-page').css('width', width + 'in');
+  $('.title-page').css('height', height + 'in');
+  $('.title-page').css('font-size', fontSize + 'px');
 }
