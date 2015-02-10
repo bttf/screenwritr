@@ -8,7 +8,7 @@ export function fountainToHtml(input) {
   var output = window.fountain.parse(input);
   var htmlOutput = "<div class='title-page'>" +
                   output.html.title_page +
-                  "</div><div class='script-pages'>" +
+                  "</div><div class='script-page'>" +
                   output.html.script +
                   "</div>";
 
