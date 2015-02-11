@@ -53,10 +53,7 @@ function handleFontSizeChange(e) {
 }
 
 function handlePageWidthChange(e) {
-  var width = 8.5 * e.target.value;
-  var height = 11 * e.target.value;
-  var fontSize = 12 * e.target.value;
-  $('.title-page').css('width', width + 'in');
-  $('.title-page').css('height', height + 'in');
+  var fontSize = 16 * e.target.value;
   $('.title-page').css('font-size', fontSize + 'px');
+  $('.script-page').css('font-size', fontSize + 'px');
 }

@@ -21,10 +21,6 @@ export default Ember.Component.extend({
       helpPanel.hide();
     } 
 
-    var closeButton = $('.close-button');
-    var closeButtonTop = (helpPanel.height() - closeButton.height()) / 2;
-    $('.close-button').css('top', closeButtonTop + 'px');
-
     this.sendAction('toggleHelpPanel');
   }.on('didInsertElement'),
 
