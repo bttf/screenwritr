@@ -49,3 +49,6 @@
 {{outlet}}
 
 {{init-tooltips}}
+{{#if session.isAuthenticated}}
+  {{init-helpPanel toggleHelpPanel='toggleHelpPanel'}}
+{{/if}}

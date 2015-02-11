@@ -5,7 +5,7 @@ var $ = Ember.$;
 export default Ember.Controller.extend({
   autoSaveEnabled: false,
   autoSaveIntervalId: '',
-  hideHelpPanel: false,
+  hideHelpPanel: true,
   hideSavePrompt: true,
   afterSaveTransitionToRoute: '',
   saved: '',
