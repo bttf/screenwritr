@@ -277,7 +277,30 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
     }
 
     .title-page {
+      position: relative;
       h1 {
+        text-align: center;
+        margin-top: 50%;
+      }
+      .credit, .source {
+        margin-top: 2em;
+        text-align: center;
+      }
+      .authors {
+        margin-top: 1em;
+        text-align: center;
+      }
+      .copyright {
+        position: absolute;
+        bottom: 3em;
+      }
+      .contact {
+        text-align: right;
+        position: absolute;
+        bottom: 3em;
+        right: 6em;
+      }
+      .draft-date {
         text-align: center;
       }
     }
