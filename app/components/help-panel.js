@@ -21,7 +21,10 @@ export default Ember.Component.extend({
       helpPanel.hide();
     } 
 
-    this.sendAction('toggleHelpPanel');
+    // toggle on onload
+    if (this.get('hideHelpPanel')) {
+      this.sendAction('toggleHelpPanel');
+    }
   }.on('didInsertElement'),
 
   actions: {

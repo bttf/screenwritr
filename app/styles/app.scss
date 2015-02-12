@@ -33,6 +33,18 @@ html, body {
       text-decoration: none;
     }
   }
+  .script-title {
+    display: inline-block;
+    margin-left: 1em;
+    font-size: 1em;
+    font-family: 'Poiret One', sans-serif;
+    input {
+      color: #666;
+      border: 0;
+      border-bottom: 2px dotted #a5b7cb;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -261,6 +273,12 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
       p {
         margin-top: 1em;
         margin-bottom: 1em;
+      }
+    }
+
+    .title-page {
+      h1 {
+        text-align: center;
       }
     }
 
