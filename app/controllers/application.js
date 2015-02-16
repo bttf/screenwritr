@@ -43,6 +43,7 @@ export default Ember.Controller.extend({
           addScriptToUser(script);
           var prettyDate = window.moment(new Date()).format('HH:mm, MM/DD/YYYY');
           _this.set('saved', 'Saved successfully @ ' + prettyDate);
+          _this.transitionToRoute('script.edit', script);
           if (!Ember.isEmpty(route)) {
             _this.send('transition', route);
           }
