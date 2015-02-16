@@ -5,5 +5,6 @@ var attr = DS.attr,
 
 export default DS.Model.extend({
   uid: attr('string'),
-  scripts: hasMany('script', { async: true })
+  scripts: hasMany('script', { async: true }),
+  newUser: attr('boolean')
 });
