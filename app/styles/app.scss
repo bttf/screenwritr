@@ -39,6 +39,7 @@ html, body {
     font-size: 1em;
     font-family: 'Poiret One', sans-serif;
     input {
+      width: 250px;
       color: #666;
       border: 0;
       border-bottom: 2px dotted #a5b7cb;
@@ -470,6 +471,27 @@ $selectedFileBgColor: #F5F4F4;
   display: none;
   .btn-danger {
     padding: 0.25em;
+  }
+}
+
+.about-screenwritr {
+  z-index: 1;
+  position: fixed;
+  top: 25%;
+  right: -50%;
+  width: 50%;
+  padding: 2em;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px #ccc solid;
+
+  .title {
+    font-size: 2em;
+  }
+
+  .body {
+    li {
+      margin: 0.5em 0 0.5em 1em;
+    }
   }
 }
 

@@ -7,11 +7,16 @@ export default Ember.Controller.extend({
   autoSaveIntervalId: '',
   hideHelpPanel: true,
   hideSavePrompt: true,
+  hideAboutDialog: true,
   afterSaveTransitionToRoute: '',
   saved: '',
   error: '',
 
   actions: {
+    toggleAboutDialog: function() {
+      this.toggleProperty('hideAboutDialog');
+    },
+
     toggleAutoSave: function() {
       this.toggleProperty('autoSaveEnabled');
 

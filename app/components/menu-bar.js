@@ -12,6 +12,10 @@ export default Ember.Component.extend({
   }.on('didInsertElement'),
 
   actions: {
+    toggleAboutDialog: function() {
+      this.sendAction('toggleAboutDialog');
+    },
+
     newScript: function() {
       if (this.get('script.isDirty')) {
         this.sendAction('toggleSavePromptThenTransition', 'script.new');
