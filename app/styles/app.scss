@@ -177,9 +177,11 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
 .menu-bar {
   margin: 0 0.5em;
   font-size: 0.9em;
+
   .bootstrap-select {
     margin-right: 0;
   }
+
   .selectpicker {
     outline: 0;
     padding: 0.2em 0.8em;
@@ -194,6 +196,7 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
       }
     }
   }
+
   ul {
     margin-left: 0;
     li {
@@ -207,8 +210,42 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
       }
     }
   }
+
   .font-size {
     vertical-align: middle;
+  }
+
+  .share-menu {
+    z-index: 1;
+    display: none;
+    position: fixed;
+    padding: 1em 1em 0 1em;
+    background-color: #FFF;
+    border: 1px #CCC solid;
+    border-radius: 5px;
+    max-width: 20em;
+    
+    .message {
+      font-size: 0.85em;
+    }
+
+    .close-button {
+      margin: 0.5em 0;
+      font-size: 0.75em;
+
+      a {
+        color: #888;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
+    input {
+      width: 100%;
+      margin-top: 1em;
+    }
   }
 }
 

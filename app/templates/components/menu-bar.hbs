@@ -1,3 +1,17 @@
+<!-- outside flow -->
+<div class='share-menu'>
+  <span class='message'>
+    Send this URL to share this script with anybody, <i>anywhere</i>.
+  </span>
+  <input type='text' value='randomly generated URL here' readonly>
+  <span class='close-button pull-right'>
+    <a href='' {{action 'toggleShareMenu'}}>
+      <i class='fa fa-close'></i> Close
+    </a>
+  </span>
+</div>
+<!-- end outside flow -->
+
 <ul class='list-inline'>
   <li>
     <a href='#' class='btn btn-link' data-toggle='tooltip' data-placement='bottom' title='New' {{action 'newScript'}}>
@@ -62,7 +76,7 @@
     </a>
   </li>
   <li>
-    <a href='#' class='btn btn-link'>
+    <a href='' class='btn btn-link share-link' {{action 'toggleShareMenu'}}>
       Share
     </a>
   </li>

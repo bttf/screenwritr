@@ -4,14 +4,40 @@ var $ = Ember.$;
 
 export default Ember.Component.extend({
   classNames: ['menu-bar'],
+  showShareMenu: false,
 
   initialize: function() {
     $('.selectpicker').selectpicker();
     $('.font-size-select').change(handleFontSizeChange);
     $('.page-width-select').change(handlePageWidthChange);
+    $('.menu-bar .share-menu input').click(function() {
+      this.select();
+    });
   }.on('didInsertElement'),
 
+  handleShareMenu: function() {
+    var shareMenu = $('.menu-bar .share-menu');
+    if (this.get('showShareMenu')) {
+      var shareLink = $('.menu-bar .share-link');
+      var top = shareLink.offset().top + shareLink.height() + 4;
+      var left = shareLink.offset().left;
+      console.log('top is ', top);
+      shareMenu.css({
+        'top': top,
+        'left': left
+      });
+      shareMenu.show();
+    } else {
+      // hide share menu
+      shareMenu.hide();
+    }
+  }.observes('showShareMenu'),
+
   actions: {
+    toggleShareMenu: function() {
+      this.toggleProperty('showShareMenu');
+    },
+
     toggleAboutDialog: function() {
       this.sendAction('toggleAboutDialog');
     },
