@@ -15,6 +15,7 @@ Router.map(function() {
   });
 
   this.route("open");
+  this.route("published", { path: "/published/:id" });
 });
 
 export default Router;

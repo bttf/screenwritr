@@ -305,91 +305,91 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
     background-color: $editorBgColor;
     padding: 16px;
   }
+}
 
-  .preview {
-    .title-page, .script-page {
-      @extend .page;
-      h1, h2, h3, h4 {
-        font-size: inherit;
-        margin-top: 1em;
-        margin-bottom: 1em;
-      }
+.preview {
+  .title-page, .script-page {
+    @extend .page;
+    h1, h2, h3, h4 {
+      font-size: inherit;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+    h4 {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    p {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+  }
+
+  .title-page {
+    position: relative;
+    h1 {
+      text-align: center;
+      margin-top: 50%;
+    }
+    .credit, .source {
+      margin-top: 2em;
+      text-align: center;
+    }
+    .authors {
+      margin-top: 1em;
+      text-align: center;
+    }
+    .copyright {
+      position: absolute;
+      bottom: 3em;
+    }
+    .contact {
+      text-align: right;
+      position: absolute;
+      bottom: 3em;
+      right: 6em;
+    }
+    .draft-date {
+      text-align: center;
+    }
+  }
+
+  .script-page {
+    height: auto;
+
+    h2 {
+      text-align: right;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    .dialogue {
+      margin-top: 2em;
+      margin-bottom: 2em;
+      margin-left: 12em;  // 2.5in
+      margin-right: 9em;  // 1.5in
       h4 {
-        margin-top: 0;
-        margin-bottom: 0;
+        margin-left: 6em;
       }
       p {
-        margin-top: 1em;
-        margin-bottom: 1em;
+        margin: 0;
+      }
+      .parenthetical {
+        margin-left: 3em;
+        margin-right: 0;
       }
     }
 
-    .title-page {
-      position: relative;
-      h1 {
-        text-align: center;
-        margin-top: 50%;
-      }
-      .credit, .source {
-        margin-top: 2em;
-        text-align: center;
-      }
-      .authors {
-        margin-top: 1em;
-        text-align: center;
-      }
-      .copyright {
-        position: absolute;
-        bottom: 3em;
-      }
-      .contact {
-        text-align: right;
-        position: absolute;
-        bottom: 3em;
-        right: 6em;
-      }
-      .draft-date {
-        text-align: center;
-      }
-    }
-
-    .script-page {
-      height: auto;
-
-      h2 {
-        text-align: right;
-      }
-
-      .centered {
-        text-align: center;
-      }
-
+    .dual-dialogue {
       .dialogue {
-        margin-top: 2em;
-        margin-bottom: 2em;
-        margin-left: 12em;  // 2.5in
-        margin-right: 9em;  // 1.5in
-        h4 {
-          margin-left: 6em;
-        }
-        p {
-          margin: 0;
-        }
-        .parenthetical {
-          margin-left: 3em;
-          margin-right: 0;
-        }
+        margin: 1em 0;
+        display: inline-block;
+        width: 45%;
       }
-
-      .dual-dialogue {
-        .dialogue {
-          margin: 1em 0;
-          display: inline-block;
-          width: 45%;
-        }
-        .right {
-          float: right;
-        }
+      .right {
+        float: right;
       }
     }
   }

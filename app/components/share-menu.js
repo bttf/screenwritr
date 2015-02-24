@@ -4,7 +4,7 @@ var $ = Ember.$;
 
 export default Ember.Component.extend({
   shareUrl: function() {
-    return ['http://', window.location.host, '/publishedScript/', this.get('script.id')].join('');
+    return ['http://', window.location.host, '/published/', this.get('script.id')].join('');
   }.property('script.id'),
 
   initialize: function() {

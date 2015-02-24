@@ -1,0 +1,22 @@
+{{#unless model.isUnlisted}}
+
+  <div class='preview'>
+
+    {{fountain-to-html model.body}}
+
+  </div>
+
+{{else}}
+
+<div class='preview'>
+  <div class='title-page'>
+    <h1>
+      This Script is currently unavailable.
+      <br>
+      <br>
+      Please ask the author of this script to Enable Read Access if you'd like to access it.
+    </h1>
+  </div>
+</div>
+
+{{/unless}}
