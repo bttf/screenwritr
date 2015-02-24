@@ -1,22 +1,45 @@
 <div class='share-menu'>
+
   {{#unless script.isNew}}
+
     <span class='message'>
-      Send this URL to share this script with anybody, <i>anywhere</i>.
+
+      {{#if script.isUnlisted}}
+        No one can read your script if Read Access is not enabled. Enable it below.
+      {{else}}
+        Send this URL to share your script with anybody, <i>anywhere</i>.
+      {{/if}}
+
     </span>
 
-    <input type='text' value='randomly generated URL here' readonly>
-
-    <span class='options pull-left'>
-    </span>
+    <input type='text' {{bind-attr value=shareUrl}} readonly>
 
     <span class='close-button pull-right'>
-      <a href='' {{action 'toggleShareMenu'}}>
-        <i class='fa fa-close'></i> Close
-      </a>
+
+      {{#if script.isUnlisted}}
+
+        <a href='' {{action 'toggleScriptUnlisted'}}>
+          <i class='fa fa-check'></i>
+          Click to Enable Read Access for your Script
+        </a>
+
+      {{else}}
+
+        <a href='' {{action 'toggleScriptUnlisted'}}>
+          <i class='fa fa-close'></i>
+          Click to Disable Read Access for your Script
+        </a>
+
+      {{/if}}
+
     </span>
+
   {{else}}
+
     <span class='message'>
       You'll have to Save your script before sharing it.
     </span>
+
   {{/unless}}
+
 </div>

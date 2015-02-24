@@ -13,6 +13,11 @@ export default Ember.Controller.extend({
   error: '',
 
   actions: {
+    toggleScriptUnlisted: function() {
+      this.toggleProperty('script.isUnlisted');
+      this.send('saveScript');
+    },
+
     toggleAboutDialog: function() {
       this.toggleProperty('hideAboutDialog');
     },

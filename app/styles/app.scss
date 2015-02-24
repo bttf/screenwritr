@@ -245,6 +245,13 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
       }
     }
 
+    .options {
+      position: absolute;
+      left: 1em;
+      bottom: 0.5em;
+      font-size: 0.75em;
+    }
+
     input {
       width: 100%;
       margin: 1em 0;

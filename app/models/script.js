@@ -11,5 +11,6 @@ export default DS.Model.extend({
     }
   }),
   body: attr('string'),
-  uid: belongsTo('user', { async: true })
+  uid: belongsTo('user', { async: true }),
+  isUnlisted: attr('boolean', { defaultValue: false })
 });

@@ -50,6 +50,10 @@ export default Ember.Component.extend({
     toggleAutoSave: function() {
       this.sendAction('toggleAutoSave');
     },
+    
+    toggleScriptUnlisted: function() {
+      this.sendAction('toggleScriptUnlisted');
+    },
 
     logout: function() {
       this.sendAction('logout');

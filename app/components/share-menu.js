@@ -3,6 +3,10 @@ import Ember from 'ember';
 var $ = Ember.$;
 
 export default Ember.Component.extend({
+  shareUrl: function() {
+    return ['http://', window.location.host, '/publishedScript/', this.get('script.id')].join('');
+  }.property('script.id'),
+
   initialize: function() {
     $('.menu-bar .share-menu input').click(function() {
       this.select();
@@ -45,6 +49,10 @@ export default Ember.Component.extend({
   }.observes('script.isNew'),
 
   actions: {
+    toggleScriptUnlisted: function() {
+      this.sendAction('toggleScriptUnlisted');
+    },
+
     toggleShareMenu: function() {
       this.sendAction('toggleShareMenu');
     }
