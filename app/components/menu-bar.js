@@ -21,15 +21,17 @@ export default Ember.Component.extend({
       var shareLink = $('.menu-bar .share-link');
       var top = shareLink.offset().top + shareLink.height() + 4;
       var left = shareLink.offset().left;
-      console.log('top is ', top);
       shareMenu.css({
         'top': top,
         'left': left
       });
-      shareMenu.show();
+      shareMenu.fadeIn({
+        duration: 100
+      });
     } else {
-      // hide share menu
-      shareMenu.hide();
+      shareMenu.fadeOut({
+        duration: 100
+      });
     }
   }.observes('showShareMenu'),
 
