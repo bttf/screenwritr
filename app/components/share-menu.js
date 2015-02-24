@@ -1,0 +1,52 @@
+import Ember from 'ember';
+
+var $ = Ember.$;
+
+export default Ember.Component.extend({
+  initialize: function() {
+    $('.menu-bar .share-menu input').click(function() {
+      this.select();
+    });
+
+    var _this = this;
+    $(document).mouseup(function(e) {
+      var shareMenu = $('.menu-bar .share-menu');
+      if (!shareMenu.is(e.target) &&
+          shareMenu.has(e.target).length === 0) {
+        _this.set('showShareMenu', false);
+      }
+    });
+  }.on('didInsertElement'),
+
+  handleShareMenu: function() {
+    var shareMenu = $('.menu-bar .share-menu');
+    if (this.get('showShareMenu')) {
+      var shareLink = $('.menu-bar .share-link');
+      var top = shareLink.offset().top + shareLink.height() + 4;
+      var left = shareLink.offset().left;
+      shareMenu.css({
+        'top': top,
+        'left': left
+      });
+      shareMenu.fadeIn({
+        duration: 100
+      });
+    } else {
+      shareMenu.fadeOut({
+        duration: 100
+      });
+    }
+  }.observes('showShareMenu'),
+
+  reattachEvents: function() {
+    $('.menu-bar .share-menu input').click(function() {
+      this.select();
+    });
+  }.observes('script.isNew'),
+
+  actions: {
+    toggleShareMenu: function() {
+      this.sendAction('toggleShareMenu');
+    }
+  }
+});

@@ -3,10 +3,9 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('menu-bar', 'MenuBarComponent', {
+moduleForComponent('share-menu', 'ShareMenuComponent', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
-  needs: ['component:share-menu']
 });
 
 test('it renders', function() {

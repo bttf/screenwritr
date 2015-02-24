@@ -13,6 +13,7 @@ Router.map(function() {
     this.route("index", { path: "/:id" });
     this.route("edit", { path: "/:id/edit" });
   });
+
   this.route("open");
 });
 

@@ -10,34 +10,15 @@ export default Ember.Component.extend({
     $('.selectpicker').selectpicker();
     $('.font-size-select').change(handleFontSizeChange);
     $('.page-width-select').change(handlePageWidthChange);
-    $('.menu-bar .share-menu input').click(function() {
-      this.select();
-    });
   }.on('didInsertElement'),
-
-  handleShareMenu: function() {
-    var shareMenu = $('.menu-bar .share-menu');
-    if (this.get('showShareMenu')) {
-      var shareLink = $('.menu-bar .share-link');
-      var top = shareLink.offset().top + shareLink.height() + 4;
-      var left = shareLink.offset().left;
-      shareMenu.css({
-        'top': top,
-        'left': left
-      });
-      shareMenu.fadeIn({
-        duration: 100
-      });
-    } else {
-      shareMenu.fadeOut({
-        duration: 100
-      });
-    }
-  }.observes('showShareMenu'),
 
   actions: {
     toggleShareMenu: function() {
-      this.toggleProperty('showShareMenu');
+      if (!Ember.isEmpty(this.get('script'))) { 
+        this.toggleProperty('showShareMenu');
+      } else {
+        this.set('showShareMenu', false);
+      }
     },
 
     toggleAboutDialog: function() {

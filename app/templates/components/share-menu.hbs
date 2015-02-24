@@ -1,0 +1,22 @@
+<div class='share-menu'>
+  {{#unless script.isNew}}
+    <span class='message'>
+      Send this URL to share this script with anybody, <i>anywhere</i>.
+    </span>
+
+    <input type='text' value='randomly generated URL here' readonly>
+
+    <span class='options pull-left'>
+    </span>
+
+    <span class='close-button pull-right'>
+      <a href='' {{action 'toggleShareMenu'}}>
+        <i class='fa fa-close'></i> Close
+      </a>
+    </span>
+  {{else}}
+    <span class='message'>
+      You'll have to Save your script before sharing it.
+    </span>
+  {{/unless}}
+</div>

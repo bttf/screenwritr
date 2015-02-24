@@ -1,16 +1,10 @@
-<!-- outside flow -->
-<div class='share-menu'>
-  <span class='message'>
-    Send this URL to share this script with anybody, <i>anywhere</i>.
-  </span>
-  <input type='text' value='randomly generated URL here' readonly>
-  <span class='close-button pull-right'>
-    <a href='' {{action 'toggleShareMenu'}}>
-      <i class='fa fa-close'></i> Close
-    </a>
-  </span>
-</div>
-<!-- end outside flow -->
+<!-- outside page flow -->
+{{share-menu
+    toggleShareMenu='toggleShareMenu'
+    showShareMenu=showShareMenu
+    script=script
+}}
+<!-- end outside page flow -->
 
 <ul class='list-inline'>
   <li>

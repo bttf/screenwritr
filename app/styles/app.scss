@@ -216,21 +216,24 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
   }
 
   .share-menu {
+    position: relative;
     z-index: 1;
     display: none;
     position: fixed;
-    padding: 1em 1em 0 1em;
-    background-color: #FFF;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.8);
     border: 1px #CCC solid;
     border-radius: 5px;
-    max-width: 20em;
+    max-width: 24em;
     
     .message {
       font-size: 0.85em;
     }
 
     .close-button {
-      margin: 0.5em 0;
+      position: absolute;
+      right: 1em;
+      bottom: 0.5em;
       font-size: 0.75em;
 
       a {
@@ -244,7 +247,7 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
 
     input {
       width: 100%;
-      margin-top: 1em;
+      margin: 1em 0;
     }
   }
 }
