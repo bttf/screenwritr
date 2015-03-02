@@ -6,12 +6,18 @@ export default Ember.Controller.extend({
   autoSaveEnabled: false,
   autoSaveIntervalId: '',
   hideHelpPanel: true,
-  showHelpOnStartup: true,
   hideSavePrompt: true,
   hideAboutDialog: true,
   afterSaveTransitionToRoute: '',
   saved: '',
   error: '',
+  showHelpOnStartup: function() {
+    if (this.get('currentRouteName') !== 'script.new') {
+      return false;
+    } else {
+      return true;
+    }
+  }.property('currentRouteName'),
 
   actions: {
     resetScript: function() {
