@@ -6,12 +6,14 @@ export function fountainToHtml(input) {
   }
 
   var output = window.fountain.parse(input);
-  var htmlOutput = "<div class='title-page'>" +
-                  output.html.title_page +
-                  "</div><div class='script-page'>" +
-                  output.html.script +
-                  "</div>";
+  var htmlOutput = "";
 
+  if (!Ember.isEmpty(output.html.title_page)) {
+    htmlOutput += "<div class='title-page'>" + output.html.title_page + "</div>";
+  } 
+  if (!Ember.isEmpty(output.html.script)) {
+    htmlOutput += "<div class='script-page'>" + output.html.script + "</div>";
+  }
   return new Ember.Handlebars.SafeString(htmlOutput);
 }
 
