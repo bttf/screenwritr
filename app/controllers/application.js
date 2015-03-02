@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
   autoSaveEnabled: false,
   autoSaveIntervalId: '',
   hideHelpPanel: true,
+  showHelpOnStartup: true,
   hideSavePrompt: true,
   hideAboutDialog: true,
   afterSaveTransitionToRoute: '',

@@ -1,6 +1,10 @@
 {{#if session.isAuthenticated}}
 
-  {{help-panel hideHelpPanel=hideHelpPanel toggleHelpPanel='toggleHelpPanel'}}
+  {{help-panel 
+      hideHelpPanel=hideHelpPanel 
+      toggleHelpPanel='toggleHelpPanel'
+      showHelpOnStartup=showHelpOnStartup
+  }}
 
   {{save-file 
       toggleSavePrompt='toggleSavePrompt'

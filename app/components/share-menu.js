@@ -40,7 +40,7 @@ export default Ember.Component.extend({
         duration: 100
       });
     }
-  }.observes('showShareMenu'),
+  }.on('didInsertElement').observes('showShareMenu'),
 
   reattachEvents: function() {
     $('.menu-bar .share-menu input').click(function() {

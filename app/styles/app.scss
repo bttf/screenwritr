@@ -231,15 +231,10 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
     }
 
     .close-button {
-      position: absolute;
-      right: 1em;
-      bottom: 0.5em;
       font-size: 0.75em;
-
       a {
         color: #888;
       }
-      
       a:hover {
         text-decoration: underline;
       }
