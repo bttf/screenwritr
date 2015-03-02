@@ -13,6 +13,11 @@ export default Ember.Controller.extend({
   error: '',
 
   actions: {
+    resetScript: function() {
+      this.set('script.title', 'New Script');
+      this.set('script.body', '');
+    },
+
     toggleScriptUnlisted: function() {
       this.toggleProperty('script.isUnlisted');
       this.send('saveScript');

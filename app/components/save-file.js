@@ -10,6 +10,10 @@ export default Ember.Component.extend({
     },
 
     justTransition: function() {
+      // if script.new to script.new
+      if (this.get('currentRouteName') === this.get('transitionRoute')) {     
+        this.sendAction('resetScript');
+      }
       this.sendAction('toggleSavePrompt');
       this.sendAction('transition', this.get('transitionRoute'));
     },
