@@ -27,6 +27,14 @@ export default Ember.Component.extend({
     }
   }.on('didInsertElement'),
 
+  toggleOnRouteChange: function() {
+    if (this.get('currentRouteName') === 'open') {
+      if (!this.get('hideHelpPanel')) {
+        this.sendAction('toggleHelpPanel');
+      }
+    }
+  }.observes('currentRouteName'),
+
   actions: {
     closePanel: function() {
       this.sendAction('toggleHelpPanel');
