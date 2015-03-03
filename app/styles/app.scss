@@ -230,6 +230,21 @@ $editorBgColor: rgba(255, 255, 255, 0.6);
       font-size: 0.85em;
     }
 
+    .social-buttons {
+      div {
+        display: inline-block;
+        margin-right: 0.5em;
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 0.5em 1em;
+        border-radius: 50%;
+      }
+      div:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+      text-align: left;
+      margin-bottom: 0.5em;
+    }
+
     .close-button {
       font-size: 0.75em;
       a {

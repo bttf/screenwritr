@@ -12,7 +12,27 @@
 
     </span>
     <input type='text' {{bind-attr value=shareUrl}} readonly>
-    <span class='close-button pull-right'>
+    <div class='social-buttons'>
+      {{#twitter-share tagName='a' url=shareUrl text='Check out this dog-gone screenplay I wrote with http://screenwritr.io'}}
+        <div class='twitter'>
+          <i class='fa fa-twitter'></i>
+        </div>
+      {{/twitter-share}}
+
+      <meta property="fb:app_id" content="996369437044844" />
+      {{#facebook-share appId='996369437044844' tagName='a' url=shareUrl}}
+        <div class='facebook'>
+          <i class='fa fa-facebook'></i>
+        </div>
+      {{/facebook-share}}
+
+      {{#email-share subject='Check out my Screenplay' url=shareUrl body='Hey friend, I wrote a new screenplay using http://screenwritr.io - Check it out!'}}
+        <div class='tumblr'>
+          <i class='fa fa-envelope'></i>
+        </div>
+      {{/email-share}}
+    </div>
+    <span class='close-button'>
 
       {{#if script.isUnlisted}}
 
