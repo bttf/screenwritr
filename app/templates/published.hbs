@@ -2,7 +2,16 @@
 
   <div class='preview'>
 
+    {{#if isScriptEmpty}}
+    <div class="row">
+      <div class="col-xs-12">
+        <!-- TODO: inline styles need to be assimilated -->
+        <h1 style="margin-left: 0.25em">This script is empty.</h1>
+      </div>
+    </div>
+    {{else}}
     {{fountain-to-html model.body}}
+    {{/if}}
 
   </div>
 

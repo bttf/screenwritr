@@ -1,13 +1,11 @@
 <div class='share-menu'>
 
-  {{#unless script.isNew}}
-
     <span class='message'>
 
       {{#if script.isUnlisted}}
         No one can read your script if Read Access is not enabled. Enable it below.
       {{else}}
-        Send this URL to share your script with anybody, <i>anywhere</i>.
+        Send this URL anybody you'd like to share this script with.
       {{/if}}
 
     </span>
@@ -39,13 +37,5 @@
       {{/if}}
 
     </span>
-
-  {{else}}
-
-    <span class='message'>
-      You'll have to Save your script before sharing it.
-    </span>
-
-  {{/unless}}
 
 </div>

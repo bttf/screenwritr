@@ -16,7 +16,7 @@ export default Ember.Route.extend({
       } else {
         return _this.store.createRecord('script', {
           uid: user
-        });
+        }).save();
       }
     });
   },
